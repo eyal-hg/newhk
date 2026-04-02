@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>קביעת פגישה | HK קבוצת חזות קריספין</title>
+  <meta name="description" content="קבעו פגישת ייעוץ ראשונית עם HK קבוצת חזות קריספין – ללא עלות וללא התחייבות." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav__logo">
+          <span class="nav__logo-mark">HK</span>
+          <div class="nav__logo-text">
+            <span>קבוצת חזות קריספין</span>
+            <span>ייעוץ עסקי ופיננסי</span>
+          </div>
+        </a>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="index.html">ראשי</a></li>
+          <li><a href="strategic-business-consulting.html">ייעוץ עסקי</a></li>
+          <li><a href="hybrid-economic-flow-management.html">ניהול תזרים</a></li>
+          <li><a href="personal-financial-management.html">ניהול פיננסי אישי</a></li>
+          <li><a href="index.html#about">אודות</a></li>
+          <li><a href="index.html#contact">צור קשר</a></li>
+          <li class="nav__cta"><a href="meeting.html" class="btn btn--primary active">קביעת פגישה</a></li>
+        </ul>
+        <button class="nav__toggle" id="nav-toggle" aria-label="תפריט">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div style="padding-top: var(--header-h); min-height: 100vh; background: var(--clr-off); display: flex; align-items: center;">
+    <div class="meeting-wrapper">
+      <div class="meeting-card">
+        <span class="tag">פגישה ראשונית ללא עלות</span>
+        <h1 class="meeting-card__title">קבעו פגישה איתנו</h1>
+        <p class="meeting-card__sub">
+          מלאו את הפרטים ונחזור אליכם תוך 24 שעות לתיאום מועד נוח.
+          הפגישה הראשונה היא ללא עלות וללא התחייבות – רק שיחה כנה על העסק שלכם.
+        </p>
+
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">שם פרטי *</label>
+              <input type="text" id="fname" name="fname" placeholder="ישראל" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">שם משפחה *</label>
+              <input type="text" id="lname" name="lname" placeholder="ישראלי" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">טלפון *</label>
+            <input type="tel" id="phone" name="phone" placeholder="050-0000000" dir="ltr" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">דוא"ל</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" dir="ltr" />
+          </div>
+
+          <div class="form-group">
+            <label for="business">שם העסק / תחום</label>
+            <input type="text" id="business" name="business" placeholder="למשל: חנות אופנה, חברת הייטק..." />
+          </div>
+
+          <div class="form-group">
+            <label for="service">במה אנחנו יכולים לעזור?</label>
+            <select id="service" name="service">
+              <option value="">בחרו נושא...</option>
+              <option value="strategic">ייעוץ עסקי אסטרטגי</option>
+              <option value="flow">ניהול תזרים כלכלי היברידי</option>
+              <option value="personal">ניהול פיננסי אישי</option>
+              <option value="other">אחר / לא בטוח</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">ספרו לנו בקצרה</label>
+            <textarea id="message" name="message" placeholder="מה האתגר העיקרי שאתם מתמודדים איתו? מה המטרה שלכם?"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;padding:16px;">
+            שלחו ונחזור אליכם ✓
+          </button>
+
+          <p style="text-align:center;font-size:.82rem;color:var(--clr-muted);margin-top:16px;">
+            או התקשרו ישירות: <a href="tel:+972559647897" style="color:var(--clr-gold);font-weight:600;direction:ltr;display:inline-block;">055-964-7897</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom" style="padding: 24px 0;">
+        <span>© 2025 HK קבוצת חזות קריספין. כל הזכויות שמורות.</span>
+        <a href="privacy.html">מדיניות פרטיות</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מדיניות פרטיות | HK קבוצת חזות קריספין</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav__logo">
+          <span class="nav__logo-mark">HK</span>
+          <div class="nav__logo-text">
+            <span>קבוצת חזות קריספין</span>
+            <span>ייעוץ עסקי ופיננסי</span>
+          </div>
+        </a>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="index.html">ראשי</a></li>
+          <li><a href="strategic-business-consulting.html">ייעוץ עסקי</a></li>
+          <li><a href="hybrid-economic-flow-management.html">ניהול תזרים</a></li>
+          <li><a href="personal-financial-management.html">ניהול פיננסי אישי</a></li>
+          <li><a href="index.html#contact">צור קשר</a></li>
+          <li class="nav__cta"><a href="meeting.html" class="btn btn--primary">קביעת פגישה</a></li>
+        </ul>
+        <button class="nav__toggle" id="nav-toggle" aria-label="תפריט">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__title">מדיניות פרטיות</h1>
+      <p class="page-hero__sub">עדכון אחרון: דצמבר 2025</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="content-block">
+
+        <h2>כללי</h2>
+        <p>
+          HK קבוצת חזות קריספין ("החברה", "אנחנו") מכבדת את פרטיות המשתמשים באתר hak.co.il.
+          מדיניות פרטיות זו מסבירה כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלך.
+        </p>
+
+        <h2>איסוף מידע</h2>
+        <p>אנו עשויים לאסוף את סוגי המידע הבאים:</p>
+        <ul>
+          <li>שם מלא, כתובת דוא"ל ומספר טלפון – בעת מילוי טפסי יצירת קשר</li>
+          <li>מידע על העסק שלך – כאשר תבחר לשתף אותו</li>
+          <li>נתוני גלישה אנונימיים לצורכי אנליטיקה ושיפור חוויית המשתמש</li>
+        </ul>
+
+        <h2>שימוש במידע</h2>
+        <p>המידע שנאסף משמש אך ורק לצורך:</p>
+        <ul>
+          <li>מתן שירותי ייעוץ ומענה לפניות</li>
+          <li>תיאום פגישות וקשר שוטף עם לקוחות</li>
+          <li>שיפור השירותים והאתר</li>
+          <li>משלוח עדכונים ותכנים רלוונטיים – בהסכמה בלבד</li>
+        </ul>
+
+        <h2>אבטחת מידע</h2>
+        <p>
+          אנו נוקטים באמצעי אבטחה מתאימים להגנה על המידע האישי שלך מפני גישה בלתי מורשית,
+          שינוי, חשיפה או השמדה.
+        </p>
+
+        <h2>שיתוף מידע עם צדדים שלישיים</h2>
+        <p>
+          אנו לא מוכרים, סוחרים או מעבירים את המידע האישי שלך לגורמים חיצוניים,
+          למעט ספקי שירות המסייעים לנו בהפעלת האתר ובמתן שירותינו – בכפוף להסכמי סודיות.
+        </p>
+
+        <h2>זכויותיך</h2>
+        <ul>
+          <li>זכות לעיין במידע האישי המוחזק עליך</li>
+          <li>זכות לתקן מידע שגוי</li>
+          <li>זכות למחוק מידע אישי</li>
+          <li>זכות לבטל הסכמה לקבלת תכנים שיווקיים</li>
+        </ul>
+
+        <h2>יצירת קשר</h2>
+        <p>
+          לכל שאלה בנוגע למדיניות פרטיות זו, ניתן ליצור קשר בטלפון
+          <a href="tel:+972559647897" style="direction:ltr;display:inline-block;">055-964-7897</a>
+          או דרך <a href="index.html#contact">טופס יצירת הקשר</a> באתר.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom" style="padding:24px 0;">
+        <span>© 2025 HK קבוצת חזות קריספין. כל הזכויות שמורות.</span>
+        <a href="privacy.html">מדיניות פרטיות</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
+</body>
+</html>
