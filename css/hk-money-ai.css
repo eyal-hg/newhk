@@ -1202,8 +1202,10 @@ body, .mn-nav__links a {
 /* Photo card — transparent background, photo + bar only */
 .ai-about__card {
   background: transparent !important;
-  border-radius: 20px;
-  width: 310px;
+  box-shadow: none !important;
+  border-radius: 20px !important;
+  padding: 0 !important;
+  width: 320px;
   flex-shrink: 0;
   overflow: hidden;
   display: flex;
@@ -1212,28 +1214,30 @@ body, .mn-nav__links a {
 
 /* Second card offset down (stagger) */
 .ai-about__card--offset {
-  margin-top: 72px;
+  margin-top: 80px;
 }
 
 /* Photo */
 .ai-about__photo {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
+  width: 100% !important;
+  height: 460px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
   flex-shrink: 0;
-  margin: 0;
+  margin: 0 !important;
+  border-radius: 20px 20px 0 0 !important;
 }
 
 /* Salmon bar — snapped directly below photo */
 .ai-about__bar {
-  width: 100%;
-  height: 17px;
-  background: #e48375;
-  border-radius: 0 0 10px 10px;
+  width: 100% !important;
+  height: 18px !important;
+  background: #e48375 !important;
+  border-radius: 0 0 10px 10px !important;
   flex-shrink: 0;
-  margin: 0;
+  margin: 0 !important;
+  display: block !important;
 }
 
 /* Responsive */
