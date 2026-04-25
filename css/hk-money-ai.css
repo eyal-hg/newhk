@@ -1204,7 +1204,7 @@ body, .mn-nav__links a {
   background: #fff;
   border-radius: 41px;
   padding: 28px 24px 32px;
-  filter: drop-shadow(0 0 22.6px rgba(12,64,104,.20));
+  box-shadow: 0 0 22.6px rgba(12,64,104,.20);
   width: 270px;
   flex-shrink: 0;
 }
