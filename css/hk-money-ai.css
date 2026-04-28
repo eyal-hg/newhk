@@ -1807,3 +1807,39 @@ body, .mn-nav__links a {
   .ai-features__grid { grid-template-columns: 1fr; }
   .mn-hero__headline  { font-size: 1.85rem !important; }
 }
+
+@media (max-width: 768px) {
+  /* Section divider titles — allow wrap, smaller font */
+  .ai-section-divider-title {
+    white-space: normal !important;
+    font-size: 1.3rem !important;
+    gap: 12px;
+  }
+
+  /* About text col — release fixed flex-basis so it doesn't set a fixed height in column layout */
+  .ai-about__text-col {
+    flex: 1 1 auto !important;
+  }
+
+  /* About cards col — stack vertically */
+  .ai-about__cards-col {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .ai-about__card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Photo on mobile — keep circular, just slightly smaller */
+  .ai-about__photo {
+    width: 72px !important;
+    height: 72px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Card header on mobile — keep row layout, adjust gap */
+  .ai-about__card-header {
+    gap: 12px;
+  }
+}
