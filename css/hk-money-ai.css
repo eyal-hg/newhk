@@ -379,6 +379,8 @@ body, .mn-nav__links a {
   box-shadow: 0 2px 20px rgba(12,64,104,.08);
   transition: transform .25s, box-shadow .25s;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .ai-trio__card:hover {
   transform: translateY(-6px);
@@ -459,8 +461,51 @@ body, .mn-nav__links a {
   font-size: .8rem;
 }
 .ai-trio__card--ai      .ai-trio__list li::before { color: var(--blue); }
+.ai-trio__card--ai      .ai-trio__list li { font-weight: 700; color: var(--navy); }
 .ai-trio__card--manager .ai-trio__list li::before { color: var(--navy); }
 .ai-trio__card--advisor .ai-trio__list li::before { color: var(--salmon); }
+
+/* AI example questions — trio card */
+.ai-trio__examples {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(57,171,226,0.2);
+}
+.ai-trio__example {
+  display: block;
+  font-family: 'Heebo', sans-serif;
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(57,171,226,0.08);
+  border: 1px solid rgba(57,171,226,0.25);
+  border-radius: 8px;
+  padding: 9px 14px;
+  direction: rtl;
+}
+
+/* AI example questions — demo card */
+.mn-demo__examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.mn-demo__example {
+  display: inline-block;
+  font-family: 'Heebo', sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: rgba(12,64,104,0.07);
+  border: 1px solid rgba(12,64,104,0.18);
+  border-radius: 20px;
+  padding: 4px 10px;
+  direction: rtl;
+}
 
 /* Bottom connector banner */
 .ai-trio__connector {
@@ -1834,7 +1879,7 @@ body, .mn-nav__links a {
 
 @media (max-width: 480px) {
   .ai-features__grid { grid-template-columns: 1fr; }
-  .mn-hero__headline  { font-size: 1.85rem !important; }
+  .mn-hero__headline  { font-size: clamp(2.6rem, 8.5vw, 3.2rem) !important; }
 }
 
 @media (max-width: 768px) {
@@ -1848,6 +1893,10 @@ body, .mn-nav__links a {
   /* About text col — release fixed flex-basis so it doesn't set a fixed height in column layout */
   .ai-about__text-col {
     flex: 1 1 auto !important;
+    text-align: center !important;
+  }
+  .ai-about__title {
+    text-align: center !important;
   }
 
   /* About cards col — stack vertically */
