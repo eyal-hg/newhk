@@ -220,6 +220,36 @@ body, .mn-nav__links a {
 /* ══════════════════════════════════════
    PROBLEM SECTION
 ══════════════════════════════════════ */
+.ai-section-divider-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.875rem;
+  font-weight: 500;
+  color: var(--blue);
+  letter-spacing: -0.03em;
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 32px;
+}
+.ai-section-divider-title::before,
+.ai-section-divider-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--blue);
+  opacity: 0.35;
+}
+.ai-section-divider-title--light {
+  color: rgba(255,255,255,0.85);
+}
+.ai-section-divider-title--light::before,
+.ai-section-divider-title--light::after {
+  background: rgba(255,255,255,0.3);
+  opacity: 1;
+}
+
 .ai-problem {
   padding: 64px 0 72px;
   background: var(--white);
@@ -252,13 +282,13 @@ body, .mn-nav__links a {
 }
 .ai-problem__item-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 8px;
 }
 .ai-problem__item-sub {
-  font-size: .92rem;
+  font-size: 1.05rem;
   color: var(--muted);
   line-height: 1.7;
 }
@@ -281,18 +311,12 @@ body, .mn-nav__links a {
   padding: 28px 24px;
   border-right: 4px solid var(--salmon);
 }
-.ai-problem__num {
-  display: block;
-  font-family: 'Karantina', sans-serif;
-  font-size: 2.8rem;
-  color: var(--salmon);
-  line-height: 1;
-  margin-bottom: 8px;
-}
+.ai-problem__num,
 .ai-problem__stats .ai-problem__num {
   display: block;
-  font-family: 'Karantina', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 2.8rem;
+  font-weight: 800;
   color: var(--salmon);
   line-height: 1;
   margin-bottom: 8px;
