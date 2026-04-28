@@ -1263,7 +1263,7 @@ body, .mn-nav__links a {
 
 /* Text column */
 .ai-about__text-col {
-  flex: 1;
+  flex: 0 0 320px;
   padding-top: 32px;
   display: flex;
   flex-direction: column;
@@ -1306,57 +1306,109 @@ body, .mn-nav__links a {
   margin: 0;
 }
 
-/* Cards column */
+/* Cards column — two photos side by side */
 .ai-about__cards-col {
   display: flex;
-  gap: 28px;
-  align-items: flex-start;
-  flex-shrink: 0;
+  flex-direction: row;
+  gap: 20px;
+  align-items: stretch;
+  flex: 1;
 }
 
-/* Photo card — transparent background, photo + bar only */
+/* Photo card */
 .ai-about__card {
   background: transparent !important;
   box-shadow: none !important;
-  border-radius: 20px !important;
+  border-radius: 0 !important;
   padding: 0 !important;
-  width: 320px;
-  flex-shrink: 0;
-  overflow: hidden;
+  flex: 1;
+  overflow: visible;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
-
-/* Second card offset down (stagger) */
-.ai-about__card--offset {
-  margin-top: 80px;
+.ai-about__card .ai-about__card-body {
+  flex: 1;
 }
 
-/* Photo — salmon bar baked in as border-bottom, zero gap */
+/* Bio text card */
+.ai-about__card-body {
+  background: #ffffff;
+  box-shadow: 0 0 46px rgba(12,64,104,0.2);
+  border-radius: 24px;
+  padding: 24px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ai-about__card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-direction: row-reverse;
+}
+.ai-about__name {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+  letter-spacing: -0.03em;
+  flex: 1;
+  text-align: right;
+}
+.ai-about__logo {
+  display: inline-block !important;
+  height: 42px;
+  width: auto;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  margin-right: 6px;
+  filter: brightness(0) invert(1);
+}
+.ai-about__bio {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--navy);
+  opacity: 0.8;
+  margin: 0;
+  text-align: right;
+}
+
+/* Second card — no offset, equal height */
+.ai-about__card--offset {
+  margin-top: 0;
+  margin-right: 0;
+}
+
+/* Photo — inline in header row */
 .ai-about__photo {
-  width: 100% !important;
-  height: 460px !important;
+  width: 90px !important;
+  height: 90px !important;
   object-fit: cover !important;
   object-position: center top !important;
   display: block !important;
-  margin: 0 !important;
-  border-radius: 20px 20px 0 0 !important;
-  border-bottom: 18px solid #e48375 !important;
-  box-sizing: border-box !important;
+  border-radius: 50% !important;
+  border: 3px solid var(--off) !important;
+  box-shadow: 0 4px 16px rgba(12,64,104,0.15) !important;
+  flex-shrink: 0 !important;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
   .ai-about__row          { flex-direction: column; gap: 40px; }
-  .ai-about__cards-col    { gap: 20px; width: 100%; }
-  .ai-about__card         { width: calc(50% - 10px); }
-  .ai-about__card--offset { margin-top: 0; }
+  .ai-about__cards-col    { flex-direction: row; gap: 20px; width: 100%; }
+  .ai-about__card         { flex: 1; }
+  .ai-about__card--offset { margin-right: 0; margin-top: 40px; }
   .ai-about__text-col     { padding-top: 0; }
   .ai-about__bottom       { align-items: center; }
 }
 @media (max-width: 640px) {
   .ai-about__cards-col    { flex-direction: column; }
   .ai-about__card         { width: 100%; max-width: 340px; margin: 0 auto; }
+  .ai-about__card--offset { margin-top: 0; }
 }
 
 /* ══════════════════════════════════════
