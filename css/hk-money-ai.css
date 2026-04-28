@@ -841,9 +841,12 @@ body, .mn-nav__links a {
   gap: 0;
 }
 .mn-demo__feat-icon {
-  font-size: 1.6rem;
-  line-height: 1;
+  width: 72px !important;
+  height: 72px !important;
+  object-fit: contain !important;
+  display: block !important;
   margin-bottom: 12px;
+  align-self: flex-end;
 }
 .mn-demo__feat > div {
   flex: 1;
@@ -1879,7 +1882,7 @@ body, .mn-nav__links a {
 
 @media (max-width: 480px) {
   .ai-features__grid { grid-template-columns: 1fr; }
-  .mn-hero__headline  { font-size: clamp(2.6rem, 8.5vw, 3.2rem) !important; }
+  .mn-hero__headline  { font-size: clamp(1.8rem, 8.2vw, 2.8rem) !important; }
 }
 
 @media (max-width: 768px) {
