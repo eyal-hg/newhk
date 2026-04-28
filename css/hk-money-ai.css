@@ -1,6 +1,14 @@
 /* HK Money AI – extension styles on top of money.css */
 
 /* ══════════════════════════════════════
+   GLOBAL — prevent horizontal overflow / white bar on mobile
+══════════════════════════════════════ */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* ══════════════════════════════════════
    TAG LABEL  (used above section titles)
 ══════════════════════════════════════ */
 .mn-tag {
@@ -1729,13 +1737,22 @@ body, .mn-nav__links a {
   .mn-contact__sub,
   .ai-pricing__note { text-align: center !important; }
 
-  /* Problem section — fix overflow, center stats */
+  /* Problem section — single column on mobile */
+  .ai-problem__list   { grid-template-columns: 1fr !important; }
+  .ai-problem__item   { border-left: none !important; border-bottom: 1px solid var(--border); padding: 24px 16px !important; }
+  .ai-problem__item:last-child { border-bottom: none; }
   .ai-problem__inner  { gap: 32px; }
-  .ai-problem__stats  { width: 100%; max-width: 100%; }
+  .ai-problem__stats  { width: 100%; max-width: 100%; gap: 12px; }
   .ai-problem__stat   {
     text-align: center;
     border-right: none;
     border-top: 4px solid var(--salmon);
+    padding: 20px 16px !important;
+  }
+  .ai-problem__num,
+  .ai-problem__stats .ai-problem__num {
+    font-size: clamp(1.6rem, 7vw, 2.8rem) !important;
+    white-space: nowrap;
   }
   .ai-problem__num    { text-align: center; }
   .ai-problem__label  { text-align: center; }
@@ -1801,6 +1818,16 @@ body, .mn-nav__links a {
 
   /* Demo phone overlay — hide on mobile, only for desktop */
   .wa-bubble-overlay  { display: none; }
+
+  /* Nav CTA button in mobile menu — full width, proper spacing */
+  .mn-nav__links.open .mn-nav__cta {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 12px 0 4px !important;
+    padding: 14px 0 !important;
+    border-radius: 50px !important;
+  }
 }
 
 @media (max-width: 480px) {
