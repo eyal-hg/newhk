@@ -54,8 +54,8 @@
 
 /* Pull images up to overlap with building area */
 .mn-hero__images {
-  min-height: clamp(380px, 48vw, 680px) !important;
-  margin-top: -200px !important;
+  height: clamp(340px, 50vw, 674px) !important;
+  margin-top: 20px !important;
   position: relative;
   z-index: 3;
   pointer-events: none;
@@ -64,18 +64,42 @@
   pointer-events: auto;
 }
 
-/* Chat image — left side, visible above the fold */
+/* Chat bubbles */
 .mn-hero__chat-wrap {
-  width: 46% !important;
-  left: 0 !important;
-  bottom: 0 !important;
+  position: absolute !important;
+  left: 22% !important;
+  top: 6.1% !important;
+  width: 62.2% !important;
+  height: 83.2% !important;
+  bottom: auto !important;
+  right: auto !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+.mn-hero__chat-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: left bottom !important;
+  opacity: 0.75 !important;
 }
 
-/* Man image — right side, full figure */
+/* Man — closer to bubbles */
 .mn-hero__man-wrap {
-  width: 48% !important;
-  right: 2% !important;
-  height: 110% !important;
+  position: absolute !important;
+  left: 37% !important;
+  top: 0 !important;
+  width: 71.7% !important;
+  height: 100% !important;
+  right: auto !important;
+}
+.mn-hero__man-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: left bottom !important;
 }
 
 /* Inline logo inside headline */
