@@ -634,12 +634,12 @@
   ══════════════════════════════════ -->
   <section class="mn-contact" id="contact">
     <div class="mn-wrap mn-contact__inner">
-      <form class="mn-contact__form" id="mn-form" onsubmit="return false">
+      <form class="mn-contact__form" id="mn-form">
         <p class="mn-contact__form-title">מלאו פרטים – נחזור אליכם תוך 24 שעות</p>
-        <input type="text" placeholder="שם מלא" class="mn-input" required />
-        <input type="tel" placeholder="טלפון" class="mn-input" required />
-        <input type="email" placeholder="מייל" class="mn-input" />
-        <input type="text" placeholder="שם העסק" class="mn-input" />
+        <input type="text" id="mn-name" placeholder="שם מלא" class="mn-input" required />
+        <input type="tel" id="mn-phone" placeholder="טלפון" class="mn-input" required />
+        <input type="email" id="mn-email" placeholder="מייל" class="mn-input" />
+        <input type="text" id="mn-business" placeholder="שם העסק" class="mn-input" />
         <button type="submit" class="mn-btn mn-btn--salmon mn-btn--full mn-btn--xl">
           רוצה AI + מנהל + יועץ בשבילי
         </button>
@@ -699,5 +699,47 @@
       });
     });
   </script>
+
+<script>
+document.getElementById('mn-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  const name    = document.getElementById('mn-name').value.trim();
+  const phone   = document.getElementById('mn-phone').value.trim();
+  const email   = document.getElementById('mn-email').value.trim();
+  const business = document.getElementById('mn-business').value.trim();
+
+  const payload = {
+    name,
+    phone,
+    stageKey: 'new',
+    source: { channel: 'אתר HK Money', form: 'טופס יצירת קשר' }
+  };
+  if (email)    payload.email = email;
+  if (business) payload.notes = 'שם עסק: ' + business;
+
+  btn.disabled = true;
+  btn.textContent = 'שולח...';
+
+  try {
+    const res = await fetch('https://hk-stage-462507.oa.r.appspot.com/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      btn.textContent = '✓ פרטים התקבלו! נחזור אליך בקרוב';
+      btn.style.background = '#4caf87';
+      this.reset();
+    } else {
+      throw new Error('server error');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'רוצה AI + מנהל + יועץ בשבילי';
+    alert('אירעה שגיאה, אנא נסה שוב או צור קשר בוואטסאפ');
+  }
+});
+</script>
 </body>
 </html>
