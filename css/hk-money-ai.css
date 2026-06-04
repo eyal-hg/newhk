@@ -110,6 +110,35 @@ html, body {
   object-position: left bottom !important;
 }
 
+/* Hero CTA group */
+.mn-hero__cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.mn-btn--outline {
+  background: rgba(255,255,255,0.9) !important;
+  border: 2px solid var(--navy) !important;
+  color: var(--navy) !important;
+  font-size: .95rem !important;
+  padding: 12px 28px !important;
+  font-weight: 600 !important;
+}
+.mn-btn--outline:hover {
+  background: #fff !important;
+}
+.mn-contact__or {
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  font-size: .85rem;
+  margin: 8px 0;
+}
+.mn-contact__calendar-btn {
+  text-align: center !important;
+  display: block !important;
+}
+
 /* Inline logo inside headline */
 .mn-hero__inline-logo {
   height: 1em;
@@ -1864,7 +1893,8 @@ body, .mn-nav__links a {
   .mn-hero__man-img   { height: auto !important; object-fit: contain !important; }
 
   /* 5. CTA — last */
-  .mn-hero__cta       { order: 4; margin: 24px auto 32px !important; display: block !important; text-align: center !important; width: fit-content !important; }
+  .mn-hero__cta       { margin: 0 !important; display: block !important; text-align: center !important; width: fit-content !important; }
+  .mn-hero__cta-group { order: 4; margin: 24px auto 32px !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important; }
 
   /* Demo phone overlay — hide on mobile, only for desktop */
   .wa-bubble-overlay  { display: none; }
