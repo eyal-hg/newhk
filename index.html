@@ -68,6 +68,15 @@
   }
   </script>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E93M3P2YN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8E93M3P2YN');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Karantina:wght@400;700&family=Rubik:wght@300;400;500;600;700&family=Open+Sans+Hebrew:wght@400;700&display=swap" rel="stylesheet" />
@@ -778,6 +787,7 @@ document.getElementById('mn-form').addEventListener('submit', async function(e) 
     if (res.ok) {
       btn.textContent = '✓ פרטים התקבלו! נחזור אליך בקרוב';
       btn.style.background = '#4caf87';
+      if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { currency: 'ILS' });
       this.reset();
     } else {
       throw new Error('server error');
