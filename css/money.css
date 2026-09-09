@@ -109,6 +109,15 @@ ul { list-style: none; }
 .mn-nav__links a:hover { color: var(--blue); }
 .mn-nav__links a:hover::after { transform: scaleX(1); }
 
+.mn-nav__login {
+  border: 1.5px solid var(--border) !important;
+  border-radius: 20px !important;
+  padding: 5px 14px !important;
+  color: var(--navy) !important;
+}
+.mn-nav__login:hover { border-color: var(--blue) !important; color: var(--blue) !important; }
+.mn-nav__login::after { display: none !important; }
+
 .mn-nav__toggle {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 4px;
