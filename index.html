@@ -77,6 +77,16 @@
     gtag('config', 'G-8E93M3P2YN');
   </script>
 
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1750634382895124');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1750634382895124&ev=PageView&noscript=1" /></noscript>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Karantina:wght@400;700&family=Rubik:wght@300;400;500;600;700&family=Open+Sans+Hebrew:wght@400;700&display=swap" rel="stylesheet" />
@@ -810,6 +820,7 @@ document.getElementById('mn-form').addEventListener('submit', async function(e) 
       btn.textContent = '✓ פרטים התקבלו! נחזור אליך בקרוב';
       btn.style.background = '#4caf87';
       if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { currency: 'ILS' });
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead');
       this.reset();
     } else {
       throw new Error('server error');
