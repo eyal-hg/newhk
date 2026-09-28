@@ -1,0 +1,744 @@
+/* ══════════════════════════════════════════════════════════
+   HK Money — גרסה מכירתית (index-v2.html)
+   נטען אחרי money.css ו-hk-money-ai.css. מוסיף סקשנים חדשים בלבד,
+   באותה שפה עיצובית: navy / salmon / blue / off, Rubik + Heebo + Karantina.
+══════════════════════════════════════════════════════════ */
+
+/* ── התאמות לסקשנים קיימים בגרסה הזו ── */
+.v2-page .ai-problem__list { margin-bottom: 0; }
+.v2-page .mn-demo__phone { flex-direction: column; align-items: center; }
+.v2-brand { white-space: nowrap; }
+/* הכרטיס שקוף עד hover; במגע אין hover, אז הדמו נשאר דהוי */
+@media (hover: none) { .v2-page .wa-chat-card { opacity: .95; } }
+.v2-page .mn-contact__form .mn-btn { white-space: normal; line-height: 1.35; }
+.v2-page .mn-contact__inner > * { min-width: 0; }
+.v2-page .mn-contact__form .mn-input:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .v2-page .sa-up, .v2-page .sa-left, .v2-page .sa-right, .v2-page .sa-scale {
+    opacity: 1 !important; transform: none !important; transition: none !important;
+  }
+}
+
+/* ── Hero: שורת אמון מתחת לכפתורים ── */
+.v2-hero-sub {
+  font-family: 'Rubik', sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: -8px auto 22px;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+.v2-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+  margin-top: 6px;
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--navy);
+  position: relative;
+  z-index: 5;
+}
+.v2-trust-row span::before {
+  content: '✓';
+  color: var(--salmon);
+  font-weight: 800;
+  margin-left: 6px;
+}
+
+/* ── תיבת צילום מסך (מסגרת דפדפן + fallback לפני שהצילום מגיע) ── */
+.v2-shot {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(12,64,104,.16), 0 2px 8px rgba(12,64,104,.06);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.v2-shot__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 14px;
+  background: #f3f7fb;
+  border-bottom: 1px solid var(--border);
+  direction: ltr;
+}
+.v2-shot__bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #d8e3ec;
+  display: block;
+}
+.v2-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--off);
+}
+.v2-shot__pending {
+  display: none;
+  aspect-ratio: 16 / 10;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgba(57,171,226,.05) 14px 28px),
+    var(--off);
+}
+.v2-shot__pending b {
+  font-family: 'Rubik', sans-serif;
+  color: var(--navy);
+  font-size: 1rem;
+}
+.v2-shot.is-pending img { display: none; }
+.v2-shot.is-pending .v2-shot__pending { display: flex; }
+
+/* ══════════════════════════════════════
+   1. "ככה נראה החודש הבא שלך" — הרגע שמבינים
+══════════════════════════════════════ */
+.v2-future {
+  padding: 72px 0 80px;
+  background: var(--off);
+}
+.v2-future__header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.v2-future__lead {
+  max-width: 640px;
+  margin: 14px auto 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.v2-future__grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.v2-future__points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.v2-future__points li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.v2-future__icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .9rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--salmon);
+  background: rgba(228,131,117,.15);
+  margin-top: 2px;
+}
+.v2-future__points strong {
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.v2-future__points p {
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════
+   2. השוואה — רו"ח / אקסל / תוכנה / HK
+══════════════════════════════════════ */
+.v2-compare {
+  padding: 72px 0 80px;
+  background: var(--white);
+}
+.v2-compare__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.v2-compare__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(12,64,104,.08);
+}
+.v2-compare__table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--white);
+  font-size: .95rem;
+}
+.v2-compare__table th,
+.v2-compare__table td {
+  padding: 16px 18px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.v2-compare__table thead th {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+  background: #f7fafd;
+  font-size: .95rem;
+}
+.v2-compare__table thead td { background: #f7fafd; }
+.v2-compare__table tbody th {
+  text-align: right;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.v2-compare__table td {
+  color: var(--muted);
+}
+.v2-compare__table tr:last-child th,
+.v2-compare__table tr:last-child td { border-bottom: none; }
+.v2-compare__table .v2-col-hk {
+  background: rgba(228,131,117,.07);
+  color: var(--navy);
+  font-weight: 700;
+}
+.v2-compare__table thead .v2-col-hk {
+  background: var(--navy);
+  color: var(--white);
+}
+.v2-compare__table thead .v2-col-hk img {
+  height: 22px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+}
+.v2-yes { color: #2e9e6b; font-weight: 800; }
+.v2-no  { color: var(--muted); font-weight: 800; }
+.v2-compare__hint { display: none; }
+.v2-compare__note {
+  text-align: center;
+  font-size: .85rem;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+/* ══════════════════════════════════════
+   3. מנהל התזרים שלך
+══════════════════════════════════════ */
+.v2-manager {
+  padding: 80px 0;
+  background: var(--navy);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.v2-manager::before {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(57,171,226,.18), transparent 70%);
+  top: -180px;
+  left: -160px;
+  pointer-events: none;
+}
+.v2-manager__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+}
+.v2-manager__lead {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,.8);
+  margin: 18px 0 28px;
+}
+.v2-manager__quote {
+  border-right: 4px solid var(--salmon);
+  padding: 6px 18px 6px 0;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+/* בעמודה חצי-רוחב, הקו הימני של הכותרת המפרידה מנתק אותה מה-h2 המיושר לימין */
+.v2-manager .ai-section-divider-title::before { display: none; }
+.v2-manager__day {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 20px;
+  padding: 30px 28px;
+}
+.v2-manager__day-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--blue);
+  margin-bottom: 18px;
+}
+.v2-manager__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.v2-manager__list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: .98rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,.88);
+}
+.v2-manager__list li::before {
+  content: '✓';
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(228,131,117,.2);
+  color: var(--salmon);
+  font-weight: 800;
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.v2-manager__list b { color: var(--white); }
+
+/* ══════════════════════════════════════
+   4. גלריית תוצרים — "מה אתה מקבל"
+══════════════════════════════════════ */
+.v2-gallery {
+  padding: 80px 0;
+  background: var(--white);
+}
+.v2-gallery__header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.v2-gallery__sub {
+  max-width: 620px;
+  margin: 12px auto 0;
+  font-size: 1.02rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.v2-channels {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 26px 0 52px;
+}
+.v2-channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 50px;
+  background: var(--off);
+  border: 1px solid var(--border);
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+.v2-channel i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+.v2-channel:nth-child(1) i { background: #25d366; }
+.v2-channel:nth-child(3) i { background: var(--salmon); }
+.v2-gallery__extra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  margin-top: 64px;
+  padding: 26px 30px;
+  border-radius: 18px;
+  background: var(--off);
+  border-right: 4px solid var(--blue);
+}
+.v2-gallery__extra strong {
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.v2-gallery__extra p {
+  margin: 0;
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 720px;
+}
+.v2-demo-note {
+  text-align: center;
+  font-size: .78rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.v2-trust__ic svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--navy);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.v2-gallery__row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 72px;
+}
+.v2-gallery__row:last-child { margin-bottom: 0; }
+.v2-gallery__row--flip { grid-template-columns: 1fr 1.3fr; }
+.v2-gallery__row--flip .v2-gallery__media { order: 2; }
+.v2-gallery__kicker {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--navy);
+  background: rgba(57,171,226,.14);
+  border-radius: 50px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+}
+.v2-gallery__kicker--plus {
+  color: var(--navy);
+  background: rgba(228,131,117,.18);
+}
+.v2-gallery__title {
+  font-family: 'Rubik', sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.v2-gallery__text {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.v2-gallery__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.v2-gallery__bullets li {
+  position: relative;
+  padding-right: 22px;
+  font-size: .93rem;
+  color: var(--navy);
+  line-height: 1.55;
+}
+.v2-gallery__bullets li::before {
+  content: '✓';
+  position: absolute;
+  right: 0;
+  color: var(--salmon);
+  font-weight: 800;
+}
+.v2-ask {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+.v2-ask span {
+  display: block;
+  width: fit-content;
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: rgba(57,171,226,.08);
+  border: 1px solid rgba(57,171,226,.35);
+  border-radius: 10px 10px 10px 2px;
+  padding: 8px 14px;
+}
+
+/* כרטיס סיכום פגישה — איור במקום צילום */
+.v2-meet {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--salmon);
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(12,64,104,.12);
+  padding: 26px 28px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.v2-meet__head { display: flex; flex-direction: column; gap: 4px; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+.v2-meet__tag { align-self: flex-start; font-size: .75rem; font-weight: 700; color: var(--navy); background: rgba(228,131,117,.18); border-radius: 50px; padding: 3px 10px; }
+.v2-meet__head b { font-family: 'Rubik', sans-serif; font-size: 1.15rem; color: var(--navy); }
+.v2-meet__head i { font-style: normal; font-size: .85rem; color: #56677a; }
+.v2-meet__block + .v2-meet__block { margin-top: 16px; }
+.v2-meet__label { font-size: .8rem; font-weight: 700; color: var(--navy); opacity: .7; margin-bottom: 8px; }
+.v2-meet ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.v2-meet li { position: relative; padding-right: 18px; font-size: .92rem; line-height: 1.55; color: var(--text); }
+.v2-meet li::before { content: '•'; position: absolute; right: 2px; color: var(--salmon); font-weight: 800; }
+.v2-meet__tasks li::before { content: '☐'; right: 0; color: var(--navy); font-weight: 400; font-size: .85rem; }
+
+/* ══════════════════════════════════════
+   5. איך מתחילים
+══════════════════════════════════════ */
+.v2-start {
+  padding: 72px 0 80px;
+  background: var(--off);
+}
+.v2-start__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.v2-start__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  counter-reset: v2step;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+}
+.v2-start__step {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 28px 22px 26px;
+  box-shadow: 0 2px 16px rgba(12,64,104,.07);
+  position: relative;
+  counter-increment: v2step;
+}
+.v2-start__step::before {
+  content: counter(v2step, decimal-leading-zero);
+  display: block;
+  font-family: 'Karantina', sans-serif;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--salmon);
+  margin-bottom: 10px;
+}
+.v2-start__step h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.v2-start__step p {
+  font-size: .92rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+.v2-start__cta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ══════════════════════════════════════
+   6. אמון ואבטחה — רצועה
+══════════════════════════════════════ */
+.v2-trust {
+  padding: 56px 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+.v2-trust__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.v2-trust__item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 22px 20px;
+  border-radius: 16px;
+  background: var(--off);
+}
+.v2-trust__ic {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(12,64,104,.08);
+}
+.v2-trust__item strong {
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  color: var(--navy);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.v2-trust__item p {
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Demo: פתרון חריגה בתוך כרטיס הוואטסאפ ── */
+.wa-cf__fix {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(46,158,107,.1);
+  color: #1f7a52;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* --muted על --off נמוך מדי ביחס ניגודיות לטקסט קטן; מכהים רק בסקשנים החדשים */
+.v2-future__lead, .v2-future__points p, .v2-compare__table td, .v2-compare__note, .v2-compare__hint,
+.v2-gallery__sub, .v2-gallery__text, .v2-gallery__extra p, .v2-start__step p, .v2-trust__item p, .v2-demo-note {
+  color: #56677a;
+}
+.v2-compare__table td.v2-col-hk { color: var(--navy); }
+.wa-cf__fix { color: #1a6b47; }
+
+/* ── בר CTA דביק למובייל ── */
+.v2-sticky {
+  display: none;
+}
+@media (max-width: 768px) {
+  .v2-sticky {
+    display: flex;
+    gap: 8px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 -4px 20px rgba(12,64,104,.12);
+    transform: translateY(110%);
+    transition: transform .3s ease;
+  }
+  .v2-sticky.is-on { transform: none; }
+  .v2-sticky a {
+    flex: 1;
+    text-align: center;
+    padding: 12px 10px !important;
+    font-size: .92rem !important;
+  }
+  .v2-sticky .v2-sticky__wa {
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    padding: 0 !important;
+  }
+  .v2-sticky .v2-sticky__wa svg { width: 22px; height: 22px; }
+  body.has-v2-sticky .mn-footer { padding-bottom: 84px; }
+  html { scroll-padding-bottom: 90px; }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .v2-future__grid,
+  .v2-manager__grid,
+  .v2-gallery__row { grid-template-columns: 1fr; gap: 32px; }
+  .v2-gallery__row--flip .v2-gallery__media { order: 0; }
+  .v2-start__steps { grid-template-columns: repeat(2, 1fr); }
+  .v2-trust__grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+}
+@media (max-width: 768px) {
+  .v2-future,
+  .v2-compare,
+  .v2-start { padding: 52px 0 60px; }
+  .v2-manager,
+  .v2-gallery { padding: 56px 0; }
+  .v2-gallery__row { margin-bottom: 56px; }
+  .v2-future__lead,
+  .v2-gallery__sub,
+  .v2-manager__lead { text-align: center; }
+  .v2-manager__text { text-align: center; }
+  .v2-manager .ai-section-divider-title::before { display: block; }
+  .v2-manager__quote { text-align: center; border-right: none; border-top: 4px solid var(--salmon); padding: 14px 0 0; }
+  .v2-hero-sub { font-size: 1.05rem; margin: 4px auto 0; order: 2; padding: 0 8px; }
+  .v2-gallery__extra { flex-direction: column; align-items: stretch; text-align: center; border-right: none; border-top: 4px solid var(--blue); }
+  .v2-trust-row { font-size: .8rem; }
+}
+@media (max-width: 768px) {
+  .v2-compare__table { min-width: 600px; font-size: .88rem; }
+  .v2-compare__table th,
+  .v2-compare__table td { padding: 12px 10px; }
+  .v2-compare__table tbody th { white-space: normal; min-width: 110px; }
+  .v2-compare__table .v2-col-hk { min-width: 130px; }
+  .v2-compare__hint { display: block; text-align: center; font-size: .78rem; margin: 10px 0 0; }
+  /* עמודת הכותרות נשארת במקום כשגוללים למתחרים */
+  .v2-compare__table tbody th,
+  .v2-compare__table thead td:first-child {
+    position: sticky; right: 0; z-index: 1; background: var(--white);
+    box-shadow: -6px 0 10px -8px rgba(12,64,104,.25);
+  }
+  .v2-compare__table thead td:first-child { background: #f7fafd; }
+  .v2-compare__table tbody th { min-width: 96px; font-size: .82rem; }
+}
+@media (max-width: 560px) {
+  .v2-start__steps { grid-template-columns: 1fr; }
+}
