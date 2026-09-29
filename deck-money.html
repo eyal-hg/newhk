@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>HK Money+ — מצגת</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@700;800&display=swap" />
+  <style>
+    :root { --navy:#0C4068; --deep:#082B47; --bg:#0A1F33; --sky:#39ABE2; --coral:#E48375; --ink:#EAF1F8; --muted:rgba(255,255,255,.64); }
+    * { box-sizing:border-box; }
+    html, body { height:100%; margin:0; background:var(--bg); color:var(--ink); font-family:Rubik,system-ui,sans-serif; overflow:hidden; }
+    body { background: radial-gradient(ellipse 60% 50% at 90% 0%, rgba(57,171,226,.16), transparent 60%), radial-gradient(ellipse 50% 45% at 0% 100%, rgba(228,131,117,.10), transparent 60%), var(--bg); }
+
+    .slide { position:absolute; inset:0; display:none; }
+    .slide.on { display:block; }
+
+    /* ── מסך מהמערכת ── */
+    .scr { height:100%; padding:30px 48px 40px; display:grid; grid-template-rows:auto 1fr; gap:16px; }
+    .scr .head { display:flex; align-items:baseline; gap:20px; flex-wrap:wrap; }
+    .k { color:var(--sky); font-weight:700; font-size:.9rem; letter-spacing:.08em; white-space:nowrap; }
+    .scr h1 { font-family:'Frank Ruhl Libre',Georgia,serif; font-weight:800; font-size:clamp(1.5rem,2.7vw,2.5rem); margin:0; line-height:1.15; }
+    h1 em { font-style:normal; color:var(--sky); }
+    .scr .sub { color:var(--muted); font-size:1.02rem; margin:0; max-width:80ch; flex-basis:100%; line-height:1.5; }
+    .win { position:relative; align-self:start; justify-self:center; height:100%; max-width:100%; aspect-ratio:2880/1800; border-radius:14px; overflow:hidden; background:#fff; border:1px solid rgba(255,255,255,.14); box-shadow:0 46px 110px rgba(0,0,0,.55); }
+    .win.r17 { aspect-ratio:2880/1700; }
+    .win .vp { position:absolute; inset:0; overflow:hidden; }
+    .win img { position:absolute; top:0; left:0; width:100%; height:auto; transition:transform .7s cubic-bezier(.2,.8,.2,1); transform-origin:50% 50%; }
+    .win.zoomed img { transform:scale(var(--z,2)); }
+    .pin { position:absolute; transform:translate(17px,-50%); display:flex; align-items:center; gap:10px; opacity:0; transition:opacity .3s; z-index:2; pointer-events:none; }
+    .pin.on { opacity:1; }
+    .pin b { width:34px; height:34px; border-radius:50%; background:var(--coral); color:#fff; display:grid; place-items:center; font-weight:700; font-size:1rem; box-shadow:0 0 0 6px rgba(228,131,117,.30), 0 10px 24px rgba(0,0,0,.35); flex:none; }
+    .pin span { background:var(--navy); color:#fff; padding:9px 15px; border-radius:10px; font-size:.98rem; font-weight:500; white-space:nowrap; box-shadow:0 12px 30px rgba(0,0,0,.4); }
+    .pin.l { flex-direction:row-reverse; transform:translate(-17px,-50%); }
+
+    /* ── שקפי טקסט ── */
+    .type { place-items:center; text-align:center; padding:56px; }
+    .slide.on.type, .slide.on.quotes, .slide.on.people, .slide.on.pic { display:grid; }
+    .type h1, .quotes h1, .people h1, .pic h1 { font-family:'Frank Ruhl Libre',Georgia,serif; font-weight:800; line-height:1.1; margin:0 0 16px; letter-spacing:-.01em; }
+    .type h1 { font-size:clamp(2.4rem,5.6vw,5.2rem); max-width:18ch; margin-inline:auto; }
+    .type p { color:var(--muted); font-size:clamp(1.05rem,1.5vw,1.35rem); max-width:56ch; margin:0 auto; line-height:1.65; }
+    .type .logo { height:64px; filter:brightness(0) invert(1); margin-bottom:36px; }
+    .type .k { letter-spacing:.14em; margin-bottom:14px; font-size:1rem; }
+    .walk { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:30px; max-width:1000px; margin-inline:auto; }
+    .walk span { padding:12px 22px; border-radius:50px; border:1px solid rgba(255,255,255,.3); font-size:1.1rem; opacity:.3; transition:all .3s; }
+    .walk span.on { opacity:1; background:#fff; color:var(--navy); border-color:#fff; }
+    .walk.steps span { border-radius:14px; text-align:right; padding:14px 20px; display:flex; gap:12px; align-items:center; }
+    .walk.steps span::before { content:attr(data-n); width:30px; height:30px; border-radius:50%; background:var(--coral); color:#fff; display:grid; place-items:center; font-weight:700; flex:none; }
+    .cta { display:inline-block; margin-top:34px; background:var(--coral); color:#fff; font-weight:700; font-size:1.25rem; padding:16px 36px; border-radius:60px; box-shadow:0 18px 40px rgba(228,131,117,.35); }
+    .fine { margin-top:18px; color:var(--muted); font-size:1rem; }
+
+    /* ── תמונה + טקסט ── */
+    .pic { grid-template-columns:1fr 1fr; align-items:center; gap:40px; padding:56px 80px; }
+    .pic h1 { font-size:clamp(2rem,4vw,3.6rem); }
+    .pic p { color:var(--muted); font-size:1.2rem; line-height:1.65; margin:0 0 8px; max-width:46ch; }
+    .pic ul { list-style:none; padding:0; margin:22px 0 0; display:grid; gap:12px; }
+    .pic li { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:14px 18px; font-size:1.1rem; opacity:.25; transition:opacity .3s; }
+    .pic li.on { opacity:1; }
+    .pic .art { background:#E9F1F8; border-radius:24px; padding:26px; box-shadow:0 40px 90px rgba(0,0,0,.5); }
+    .pic .art img { width:100%; display:block; }
+
+    /* ── המלצות ── */
+    .quotes { align-content:center; padding:50px 70px; gap:26px; text-align:center; }
+    .quotes h1 { font-size:clamp(1.8rem,3.4vw,3rem); }
+    .qs { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:right; }
+    .q { background:#fff; color:var(--navy); border-radius:20px; padding:26px 26px 22px; opacity:.2; transform:translateY(8px); transition:all .35s; display:flex; flex-direction:column; gap:14px; }
+    .q.on { opacity:1; transform:none; }
+    .q .st { color:var(--coral); letter-spacing:.2em; }
+    .q p { margin:0; font-size:1.13rem; line-height:1.6; flex:1; }
+    .q b { display:block; font-size:1rem; } .q small { color:#5A6F84; font-size:.9rem; }
+
+    /* ── האנשים ── */
+    .people { align-content:center; padding:50px 80px; gap:30px; text-align:center; }
+    .people h1 { font-size:clamp(1.8rem,3.4vw,3rem); }
+    .ps { display:grid; grid-template-columns:1fr 1fr; gap:24px; text-align:right; max-width:1150px; margin-inline:auto; }
+    .p { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); border-radius:22px; padding:24px; display:grid; grid-template-columns:170px 1fr; gap:22px; align-items:center; opacity:.25; transition:opacity .3s; }
+    .p.on { opacity:1; }
+    .p img { width:170px; height:170px; object-fit:cover; object-position:top; border-radius:18px; background:#E9F1F8; }
+    .p b { font-size:1.4rem; display:block; margin-bottom:6px; } .p span { color:var(--muted); line-height:1.6; font-size:1.02rem; }
+
+    /* ── ניווט ── */
+    .prog { position:fixed; left:0; bottom:0; height:3px; background:var(--sky); width:0; transition:width .3s; z-index:4; }
+    .cnt { position:fixed; bottom:12px; left:22px; color:var(--muted); font-size:.82rem; direction:ltr; z-index:4; }
+    .hint { position:fixed; bottom:12px; right:22px; color:var(--muted); font-size:.78rem; z-index:4; }
+    .mark { position:fixed; top:20px; left:26px; height:22px; filter:brightness(0) invert(1); opacity:.55; z-index:4; }
+    @media (max-width:900px) { .scr { padding:18px 14px 40px; } .pin span { font-size:.78rem; padding:6px 10px; white-space:normal; max-width:46vw; } .win { height:auto; width:100%; }
+      .qs, .ps, .pic { grid-template-columns:1fr; } .pic, .quotes, .people, .type { padding:28px 20px 50px; overflow:auto; } .p { grid-template-columns:90px 1fr; } .p img { width:90px; height:90px; } .mark { display:none; } }
+    @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+  </style>
+</head>
+<body>
+  <img class="mark" src="assets/hkmoneylogo.png" alt="HK Money" />
+  <div id="slides"></div>
+  <div class="prog" id="prog"></div>
+  <div class="cnt" id="cnt"></div>
+  <div class="hint">← / רווח: הבא · F: מסך מלא</div>
+
+  <script>
+  /* ── התוכן. מסך = צילום מהמערכת (חברת דמו) + נקודות שנחשפות בלחיצה [x%, y%, טקסט, צד, זום] ── */
+  var S = [
+    { type:'cover', logo:true, h:'תראה היום מה צפוי בחשבון <em>בעוד חודש.</em>', p:'HK Money+ · מנהל תזרים, יועץ פיננסי ו-AI. בשבילך.' },
+
+    { type:'sec', k:'הבעיה שכולם מכירים', h:'הדוחות נראים טוב. <em>הבנק מספר סיפור אחר.</em>', p:'שלושה דברים שכל בעל עסק מכיר מקרוב.', walk:['אתה לא באמת יודע כמה יישאר בסוף החודש','הכסף יוצא לפני שהוא נכנס','את החריגה מגלים אחרי שהיא קרתה'] },
+    { type:'sec', k:'מה משתנה', h:'רואה החשבון מסתכל אחורה. <em>אנחנו מסתכלים קדימה.</em>', p:'רואה החשבון שלך נשאר. אנחנו מכסים את מה שהוא לא אמור לעשות: את הכסף של החודש הבא.', walk:['מה צפוי, יום אחרי יום','חריגה — לפני שהיא קורה','אדם שמסתכל על הכסף שלך כל יום עסקים'] },
+    { type:'sec', k:'HK MONEY+', h:'אנשים אמיתיים, <em>ו-AI שעוזר להם.</em>', p:'לא רק מערכת. לא רק ייעוץ. ניהול יומי בפועל.', walk:['מנהל תזרים אישי','יועץ פיננסי, פעם בחודש','עוזר AI שמכיר את המספרים שלך','וואטסאפ + מערכת אישית'] },
+
+    { kk:'המערכת האישית · דשבורד', h:'כל הכסף של העסק — <em>במסך אחד.</em>', p:'נכנסים, והכול כבר מחובר: הבנקים, האשראי, והמנהל שלך.', img:'demo-dashboard', r17:true,
+      pins:[[81,23,'היתרה היום — מול המסגרת שלך',null,1.6],[60,27,'החריגה הצפויה: כמה, ומתי'],[26,20,'פנייה למנהל התזרים שלך — מכאן','l'],[79,49,'חיובי האשראי: מה קפץ, מה ירד']] },
+    { kk:'התזרים קדימה', h:'ככה נראה החודש הבא שלך — <em>כבר היום.</em>', p:'הבנק מראה מה קרה אתמול. כאן רואים מה צפוי לקרות, יום אחרי יום.', img:'demo-future-cashflow',
+      pins:[[41,31,'החריגה הראשונה — עם תאריך וסכום',null,1.7],[78,30,'קו המסגרת, והיתרה הצפויה מולו'],[78,68,'כל תנועה צפויה — ביום שלה'],[4,24,'העוזר: מה חשוב לדעת החודש','l']] },
+    { kk:'מה היה · תמונת תזרים', h:'לאן הלך הכסף — <em>לפי קטגוריות.</em>', p:'פתיחה, סגירה והפרש לכל חודש. זה הדוח שעוברים עליו בפגישה החודשית.', img:'demo-monthly-cashflow',
+      pins:[[79,13,'פתיחה, סגירה והפרש — לתקופה שבחרת'],[78,54,'הכנסות והוצאות, עד רמת הקטגוריה'],[4,23,'שואלים על הדוח — והתשובה מהמספרים שבו','l']] },
+    { kk:'עוזר AI', h:'שואלים בעברית — <em>התשובה מהמספרים שלך.</em>', p:'ה-AI לא מנהל את הכסף ולא מייעץ. הוא עונה על שאלות; את העבודה עושה אדם.', img:'demo-ai-assistant',
+      pins:[[78,26,'שואלים במילים שלך'],[78,43,'על הכסף: יתרה, מגמות, חריגות'],[78,52.5,'ועל הליווי: מה סוכם, מה פתוח, מתי הפגישה']] },
+
+    { type:'sec', k:'מנהל התזרים שלך', h:'לא "צוות מומחים". <em>אדם אחד שמכיר את העסק שלך.</em>', p:'הוא לא תוכנה שמחכה שתזין אותה. אתה לא לומד מערכת ולא מתחזק כלום.', walk:['עובר על הבנק והאשראי כל יום עסקים','כל תנועה מסווגת — ה-AI מציע, הוא מאשר','התחזית מתעדכנת לפי מה שקרה בפועל','שלחת שיק, מסמך או שאלה? הוא מטפל'] },
+    { type:'sec', k:'היועץ הפיננסי · HK MONEY+', h:'פעם בחודש: <em>מה קרה, ומה עושים הלאה.</em>', p:'פגישה שמחברת בין הרווח בדוחות לכסף בבנק — ומסתיימת בהחלטות.', walk:['פגישה חודשית על תוצאות העסק','חיבור בין רווח לתזרים','המלצות ברורות לחודש הבא','סיכום ומשימות בכתב אחרי כל פגישה'] },
+
+    { type:'pic', k:'וואטסאפ', h:'איפה שאתה <em>כבר נמצא.</em>', p:'קבוצה אחת עם מנהל התזרים שלך.', img:'assets/whats1.png',
+      list:['שואלים בקבוצה — ומקבלים תשובה מהמספרים של העסק','שולחים צילום של שיק או מסמך, והוא מטפל','סיכומים בכתב','צפויה חריגה ויש כסף בחשבון אחר? ההודעה מגיעה עם הפתרון'] },
+
+    { type:'sec', k:'ביטחון', h:'קריאה בלבד. <em>הכסף נשאר אצלך.</em>', p:'המערכת רואה תנועות ויתרות. היא לא יכולה להעביר כסף, לשלם או לבצע שום פעולה כספית.', walk:['Open Banking מורשה, בפיקוח בנק ישראל','בלי לשמור סיסמאות','תמיד יש אדם שאחראי על המספרים','בלי התחייבות ובלי עלויות הקמה'] },
+
+    { type:'quotes', k:'בעלי עסקים, במילים שלהם', h:'מי שכבר רואה את הכסף שלו <em>קדימה.</em>',
+      qs:[['לפני HK Money הייתי מנסה לנחש אם יש לי כסף לשלם משכורות. היום אני יודע 10 ימים קדימה. שינה לי את החיים.','דני כהן','בעל חברת ייבוא, 12 עובדים'],
+          ['הרו"ח שלי תמיד הראה רווח אבל הבנק היה ריק. HK Money הסבירה לי למה – ועזרה לי לתקן את זה.','מיכל רוזנברג','בעלת רשת קפה, 3 סניפים'],
+          ['פעם הייתי מתעורר בלילה מדאגות על הכסף. היום אני יודע שמישהו מנהל את זה בשבילי – AI ואדם. ישן טוב יותר.','יוסי לוי','מסעדן, 2 סניפים']] },
+
+    { type:'people', k:'האנשים מאחורי', h:'אנשים שחיים ונושמים <em>עסקים בישראל.</em>',
+      ps:[['assets/eyal3.png','אייל חזות','יזם ויועץ עסקי, המייסד של ממשק הניהול הפיננסי bizibox. מאמין שלכל עסק יש סיפור משלו — ולכן HK Money הוא שירות עם אנשים שמכירים אותך, ולא עוד תוכנה.'],
+          ['assets/ofir3.png','אופיר קריספין','רואה חשבון ומנהל כספים, כיהן כסמנכ"ל כספים בחברות גדולות במשק. מתמחה בניהול תזרים, תקציב ותוכנית עסקית — איש של מספרים שמבין שמאחורי כל מספר יש אנשים.']] },
+
+    { type:'sec', steps:true, k:'איך מתחילים', h:'מתחילים בשיחה אחת. <em>משם, אנחנו מסדרים.</em>', p:'המספרים שלך לא מסודרים? זה בדיוק מה שמנהל התזרים עושה במקומך.', walk:['פגישת אבחון חינם','חיבור לבנק ולאשראי — לקריאה בלבד','מנהל התזרים מקים את התמונה','מתחילים לעבוד: וואטסאפ + מערכת אישית'] },
+
+    { type:'cover', logo:true, h:'רוצה לדעת כמה כסף צפוי לך <em>ביום שישי?</em>', p:'פגישת אבחון אישית וחינמית. נבין מה מטריד אותך בכסף, נראה לך איך זה עובד, ותחליט.', cta:'hak.co.il · פגישת אבחון חינם', fine:'ללא התחייבות · ללא עלויות הקמה · חיבור לבנק לקריאה בלבד' }
+  ];
+
+  /* ── בנייה ── */
+  var root = document.getElementById('slides');
+  S.forEach(function (s) {
+    var el = document.createElement('section'); el.className = 'slide';
+    if (s.type === 'cover') {
+      el.className += ' type';
+      el.innerHTML = '<div>' + (s.logo ? '<img class="logo" src="assets/hkmoneylogo.png" alt="HK Money">' : '') + '<h1>' + s.h + '</h1><p>' + s.p + '</p>' +
+        (s.cta ? '<div class="cta">' + s.cta + '</div>' : '') + (s.fine ? '<div class="fine">' + s.fine + '</div>' : '') + '</div>';
+    } else if (s.type === 'sec') {
+      el.className += ' type';
+      el.innerHTML = '<div><div class="k">' + s.k + '</div><h1>' + s.h + '</h1><p>' + s.p + '</p><div class="walk' + (s.steps ? ' steps' : '') + '">' +
+        s.walk.map(function (w, n) { return '<span class="st" data-n="' + (n + 1) + '">' + w + '</span>'; }).join('') + '</div></div>';
+      el.dataset.steps = s.walk.length;
+    } else if (s.type === 'pic') {
+      el.className += ' pic';
+      el.innerHTML = '<div><div class="k">' + s.k + '</div><h1>' + s.h + '</h1><p>' + s.p + '</p><ul>' + s.list.map(function (w) { return '<li class="st">' + w + '</li>'; }).join('') + '</ul></div>' +
+        '<div class="art"><img src="' + s.img + '" alt=""></div>';
+      el.dataset.steps = s.list.length;
+    } else if (s.type === 'quotes') {
+      el.className += ' quotes';
+      el.innerHTML = '<div><div class="k">' + s.k + '</div><h1>' + s.h + '</h1></div><div class="qs">' + s.qs.map(function (q) {
+        return '<div class="q st"><div class="st-r" style="color:var(--coral);letter-spacing:.2em">★★★★★</div><p>״' + q[0] + '״</p><div><b>' + q[1] + '</b><small>' + q[2] + '</small></div></div>'; }).join('') + '</div>';
+      el.dataset.steps = s.qs.length;
+    } else if (s.type === 'people') {
+      el.className += ' people';
+      el.innerHTML = '<div><div class="k">' + s.k + '</div><h1>' + s.h + '</h1></div><div class="ps">' + s.ps.map(function (p) {
+        return '<div class="p st"><img src="' + p[0] + '" alt="' + p[1] + '"><div><b>' + p[1] + '</b><span>' + p[2] + '</span></div></div>'; }).join('') + '</div>';
+      el.dataset.steps = s.ps.length;
+    } else {
+      var pins = (s.pins || []).map(function (p, n) {
+        var x = p[0], y = p[1], side = p[3] === 'l' ? ' l' : '';
+        var pos = side ? 'left:' + x + '%' : 'right:' + (100 - x) + '%';
+        return '<div class="pin' + side + '" style="' + pos + ';top:' + y + '%" data-zoom="' + (p[4] || '') + '" data-x="' + x + '" data-y="' + y + '"><b>' + (n + 1) + '</b><span>' + p[2] + '</span></div>';
+      }).join('');
+      el.innerHTML = '<div class="scr"><div class="head"><span class="k">' + s.kk + '</span><h1>' + s.h + '</h1><p class="sub">' + s.p + '</p></div>' +
+        '<div class="win' + (s.r17 ? ' r17' : '') + '"><div class="vp"><img src="assets/v2-system/' + s.img + '.png" alt="" loading="eager"></div>' + pins + '</div></div>';
+      el.dataset.steps = (s.pins || []).length;
+    }
+    root.appendChild(el);
+  });
+
+  /* ── ניווט: צעדים בתוך שקף, ואז שקף הבא. ?all=1 חושף הכול (להדפסה/צילום) ── */
+  var slides = [].slice.call(root.children), i = 0, step = 0, ALL = /[?&]all=1/.test(location.search);
+  function render() {
+    var el = slides[i], max = +el.dataset.steps || 0; if (ALL) step = max;
+    slides.forEach(function (x, k) { x.classList.toggle('on', k === i); });
+    el.querySelectorAll('.st').forEach(function (w, k) { w.classList.toggle('on', k < step); });
+    var pins = el.querySelectorAll('.pin'), win = el.querySelector('.win');
+    pins.forEach(function (p, k) { p.classList.toggle('on', k < step); });
+    if (win) {
+      var img = win.querySelector('img'), cur = step > 0 && !ALL ? pins[step - 1] : null, z = cur && cur.dataset.zoom;
+      if (z && img) { img.style.transformOrigin = cur.dataset.x + '% ' + cur.dataset.y + '%'; win.style.setProperty('--z', z); win.classList.add('zoomed'); }
+      else win.classList.remove('zoomed');
+      pins.forEach(function (p, k) { if (z) p.classList.toggle('on', k === step - 1); });
+    }
+    document.getElementById('cnt').textContent = (i + 1) + ' / ' + S.length;
+    document.getElementById('prog').style.width = (i / (S.length - 1) * 100) + '%';
+    history.replaceState(null, '', location.search + '#' + (i + 1));
+  }
+  function next() { var max = +slides[i].dataset.steps || 0; if (step < max) { step++; } else if (i < S.length - 1) { i++; step = 0; } render(); }
+  function prev() { if (step > 0) { step--; } else if (i > 0) { i--; step = +slides[i].dataset.steps || 0; } render(); }
+  function goto(n) { i = Math.max(0, Math.min(S.length - 1, n)); step = 0; render(); }
+  document.addEventListener('keydown', function (e) {
+    if (['ArrowLeft', ' ', 'PageDown', 'Enter', 'ArrowDown'].indexOf(e.key) > -1) { e.preventDefault(); next(); }
+    else if (['ArrowRight', 'PageUp', 'Backspace', 'ArrowUp'].indexOf(e.key) > -1) { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') goto(0); else if (e.key === 'End') goto(S.length - 1);
+    else if (e.key.toLowerCase() === 'f') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+  });
+  document.addEventListener('click', function (e) { e.clientX < window.innerWidth * .8 ? next() : prev(); });
+  var tx = null; document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; });
+  document.addEventListener('touchend', function (e) { if (tx == null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) dx < 0 ? next() : prev(); tx = null; });
+  goto((parseInt(location.hash.slice(1), 10) || 1) - 1);
+  </script>
+</body>
+</html>

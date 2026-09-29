@@ -1275,5 +1275,9 @@ document.getElementById('mn-form').addEventListener('submit', async function(e) 
   }
 });
 </script>
+  <script>
+    /* כניסה נסתרת: דאבל-קליק על הלוגו פותח את מצגת המכירה */
+    (function () { var l = document.querySelector('.mn-logo'); if (l) l.addEventListener('dblclick', function (e) { e.preventDefault(); window.open('deck-money.html', '_blank'); }); })();
+  </script>
 </body>
 </html>
