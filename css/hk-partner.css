@@ -219,3 +219,56 @@ h3{font-family:var(--ui);font-weight:800}
   .pt-price__num{font-size:5.4rem}.pt-price__card{padding:30px 22px;border-radius:24px}
   .pt-firm__name small{display:none}
 }
+
+/* ── גרסה 3 (אפיון אופיר 08.10): קצר, בלי מחיר ובלי כרטיסים צפים ב-hero, שלושה מרכיבים ── */
+.pt-hero--clean{min-height:0}
+.pt-hero--clean .pt-hero__in{padding-top:56px;padding-bottom:40px;grid-template-columns:1.15fr .85fr}
+.pt-h1--one{font-family:var(--ui);font-weight:900;font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1.12}
+.pt-h1--one span{color:var(--salmon)}
+.pt-hero--clean .pt-lead{margin:18px 0 0;max-width:600px}.pt-hero--clean .pt-lead b{color:#fff}
+.pt-hero__sum{font-family:var(--ui);font-weight:700;font-size:1.12rem;color:#fff;margin:22px 0 26px;max-width:600px}
+.pt-hero__art--clean{min-height:460px}
+.pt-hero--clean .pt-hero__man{bottom:-100px;width:min(500px,100%)}
+/* הקמה */
+.pt-setup{padding:60px 0 0;background:#fff}
+.pt-setup__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.pt-setup__copy p{font-size:1.08rem;color:var(--text);margin:14px 0 0}
+.pt-setup__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;counter-reset:st}
+.pt-setup__list li{counter-increment:st;background:var(--off);border-radius:18px;padding:20px 20px 18px;position:relative}
+.pt-setup__list li::before{content:counter(st);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--ui);font-weight:800;font-size:.95rem;margin-bottom:12px}
+.pt-setup__list b{display:block;font-family:var(--ui);font-size:1.05rem;color:var(--navy);margin-bottom:4px}
+.pt-setup__list span{font-size:.95rem;color:var(--text);line-height:1.55}
+.pt-setup__bridge{text-align:center;font-family:var(--ui);font-weight:800;font-size:clamp(1.5rem,2.6vw,2rem);color:var(--navy);margin:56px 0 0;padding:0 24px 64px}
+.pt-setup__bridge span{color:var(--salmon)}
+/* שלושה מרכיבים */
+.pt-three{background:var(--navy2);padding:88px 0;position:relative;overflow:hidden}
+.pt-three::before{content:'';position:absolute;inset:-20% -10% auto auto;width:60%;height:80%;background:radial-gradient(closest-side,rgba(57,171,226,.22),transparent)}
+.pt-three__grid{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:18px;position:relative;align-items:stretch}
+.pt-tile__asks{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.pt-tile__asks span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:9px 12px;font-size:.9rem;color:#fff;font-weight:500}
+.pt-three__line{position:relative;text-align:center;font-family:var(--ui);font-size:1.1rem;color:rgba(255,255,255,.85);margin:40px auto 0;max-width:820px}
+.pt-three__line b{color:#fff}
+/* איגרת קצרה */
+.pt-v3 .pt-letter{padding:88px 0}
+.pt-v3 .pt-letter__body{font-size:1.2rem}
+/* הטבה */
+.pt-offer{margin:22px 0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:6px 22px}
+.pt-offer__row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.pt-offer__row:last-child{border-bottom:0}
+.pt-offer__row span{color:rgba(255,255,255,.75)}.pt-offer__row s{color:rgba(255,255,255,.55);font-size:1.05rem}
+.pt-offer__row--main span{color:#fff;font-weight:600}
+.pt-offer__row--main b{font-family:var(--ui);font-weight:900;font-size:2.2rem;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+.pt-offer__row--main b small{font-size:.95rem;font-weight:500;color:#9fd3f0;margin-inline-start:4px}
+.pt-v3 .pt-join__badges{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+.pt-sticky__p b{font-size:1rem}
+@media (max-width:1024px){
+  .pt-hero--clean .pt-hero__in{grid-template-columns:1fr}
+  .pt-hero__art--clean{min-height:380px}.pt-hero--clean .pt-hero__man{bottom:-50px;width:min(420px,90%)}
+  .pt-setup__grid{grid-template-columns:1fr;gap:24px}
+  .pt-three__grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .pt-setup__list{grid-template-columns:1fr}
+  .pt-v3 .pt-join__badges{grid-template-columns:1fr}
+  .pt-h1--one{font-size:2.1rem}
+}
