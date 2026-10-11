@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Rubik:wght@400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700;800;900&family=Suez+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/hk-partner.css?v=8" />
+  <link rel="stylesheet" href="css/hk-partner.css?v=9" />
 </head>
-<body class="pt-v3">
+<body class="pt-v3 pt-v5">
 
   <!-- ── פס עליון: שני המותגים ── -->
   <header class="pt-top" id="pt-top">
@@ -33,7 +33,7 @@
     <div class="pt-wrap pt-hero__in">
       <div class="pt-hero__copy">
         <div class="pt-eyebrow"><span class="pt-eyebrow__dot"></span>שיתוף פעולה בלעדי ללקוחות המשרד</div>
-        <h1 class="pt-h1 pt-h1--one">לדעת היום מה צפוי לקרות<br/><span>עם הכסף של העסק מחר.</span></h1>
+        <h1 class="pt-h1 pt-h1--one"><span class="pt-nb">לדעת היום מה צפוי לקרות</span> <span class="pt-nb pt-h1__acc">עם הכסף של העסק מחר.</span></h1>
         <p class="pt-lead">ניהול תזרים מזומנים שוטף שמשלב מנהל תזרים אישי, מערכת פיננסית חכמה ועוזר AI בוואטסאפ — כדי שתדעו מה נכנס, מה יוצא ומה צפוי בהמשך.</p>
         <div class="pt-hero__cta">
           <a href="#join" class="pt-btn pt-btn--salmon pt-btn--xl">לקבלת ההטבה ללקוחות המשרד</a>
@@ -44,37 +44,32 @@
         <img src="assets/nam.png" alt="בעל עסק מסתכל בטלפון על התזרים שלו" class="pt-hero__man" />
       </div>
     </div>
-    <div class="pt-hero__fade" aria-hidden="true"></div>
   </section>
 
   <!-- ── 2 · שלושת מרכיבי השירות ── -->
-  <section class="pt-three" id="what">
+  <section class="pt-svc" id="what">
     <div class="pt-wrap">
-      <div class="pt-head pt-head--light">
-        <div class="pt-eyebrow pt-eyebrow--light">מה כולל השירות</div>
+      <div class="pt-svc__head">
+        <div class="pt-eyebrow">מה כולל השירות</div>
         <h2>שלושה מרכיבים <span>שעובדים יחד.</span></h2>
       </div>
-      <div class="pt-three__grid">
-        <article class="pt-tile" style="--d:0">
-          <div class="pt-tile__num">01</div>
-          <img src="assets/hand.png" alt="" class="pt-tile__ic" />
+      <div class="pt-svc__grid">
+        <article class="pt-svc__card">
+          <span class="pt-svc__ic"><img src="assets/hand.png" alt="" /></span>
           <h3>מנהל תזרים אישי שמלווה את העסק</h3>
           <p>כלכלן שמכיר את המספרים שלכם, עוקב אחר התזרים ועוזר לכם להבין מה דורש טיפול.</p>
         </article>
-        <article class="pt-tile pt-tile--aki" style="--d:1">
-          <div class="pt-tile__num">02</div>
-          <img src="assets/robot.png" alt="" class="pt-tile__ic" />
+        <article class="pt-svc__card pt-svc__card--kai">
+          <span class="pt-svc__ic"><img src="assets/robot.png" alt="" /></span>
           <h3>תשובות על הכסף שלכם בוואטסאפ</h3>
           <p>שואלים את KAI שאלות בשפה פשוטה ומקבלים תשובות המבוססות על נתוני העסק.</p>
         </article>
-        <article class="pt-tile" style="--d:2">
-          <div class="pt-tile__num">03</div>
-          <img src="assets/Financial reports.png" alt="" class="pt-tile__ic" />
+        <article class="pt-svc__card">
+          <span class="pt-svc__ic"><img src="assets/Financial reports.png" alt="" /></span>
           <h3>תמונה פיננסית אחת, ברורה ומעודכנת</h3>
           <p>בנקים, אשראי, הכנסות, הוצאות ותחזית תזרים במקום אחד.</p>
         </article>
       </div>
-      <p class="pt-three__line">כל מה שקורה בעסק בשוטף מתעדכן בתזרים, כך שמנהל התזרים, KAI והמערכת עובדים על <b>אותה תמונה פיננסית</b>.</p>
     </div>
   </section>
 
@@ -99,34 +94,31 @@
     </div>
   </section>
 
-  <!-- ── 4 · איך זה עובד: הקמה ── -->
-  <section class="pt-setup">
-    <div class="pt-wrap pt-setup__grid">
-      <div class="pt-setup__copy">
+  <!-- ── 4 · איך זה עובד: הקמה, ואז הניהול השוטף ביום־יום ── -->
+  <section class="pt-how" id="how">
+    <div class="pt-wrap">
+      <div class="pt-how__head">
         <div class="pt-eyebrow">איך זה עובד</div>
         <h2>מתחילים <span>בהיכרות עם העסק.</span></h2>
         <p>בשלב הראשון אנחנו מקימים את סביבת העבודה הפיננסית של העסק:</p>
       </div>
-      <ul class="pt-setup__list">
+      <ol class="pt-steps4">
         <li><b>חיבור מאובטח לנתוני הבנק והאשראי</b><span>באמצעות Bizibox, לקריאה בלבד.</span></li>
         <li><b>מעבר על הפעילות והנתונים הקיימים</b><span>של החודשים האחרונים.</span></li>
         <li><b>שיחת אבחון פיננסית אישית</b><span>על העסק ועל מה שחשוב לכם בכסף.</span></li>
         <li><b>הקמת תזרים</b><span>שמותאם לפעילות האמיתית של העסק.</span></li>
-      </ul>
-    </div>
-    <p class="pt-setup__bridge">ומכאן, <span>הניהול הופך לשוטף.</span></p>
-  </section>
+      </ol>
 
-  <!-- ── 5 · ככה זה נראה ביום־יום: וואטסאפ + המערכת ── -->
-  <section class="pt-day" id="day">
-    <div class="pt-wrap">
-      <div class="pt-head">
-        <div class="pt-eyebrow">הניהול השוטף</div>
+      <div class="pt-how__bridge" id="day">
+        <p class="pt-how__then">ומכאן, הניהול הופך לשוטף.</p>
         <h2>ככה זה נראה <span>ביום־יום.</span></h2>
       </div>
-      <div class="pt-day__grid">
-        <div class="pt-day__wa">
-          <div class="pt-wa" role="img" aria-label="הדגמה של שיחת וואטסאפ עם KAI: שאלה כמה כסף צפוי להישאר בסוף החודש, ושאלה אילו תשלומים צפויים השבוע">
+
+      <div class="pt-day2">
+        <figure class="pt-day2__wa">
+          <div class="pt-phone">
+            <span class="pt-phone__notch" aria-hidden="true"></span>
+            <div class="pt-wa" role="img" aria-label="הדגמה של שיחת וואטסאפ עם KAI: שאלה כמה כסף צפוי להישאר בסוף החודש, ושאלה אילו תשלומים צפויים השבוע">
             <div class="pt-wa__head">
               <img src="assets/money-hk-icon.svg" alt="" class="pt-wa__avatar" />
               <span class="pt-wa__name"><b>KAI · HK Money</b><small>העוזר הפיננסי של העסק</small></span>
@@ -156,43 +148,39 @@
               </div>
             </div>
           </div>
-          <p class="pt-day__note">הדגמה עם נתונים בדויים</p>
-        </div>
+          </div>
+          <figcaption>KAI בוואטסאפ · הדגמה עם נתונים בדויים</figcaption>
+        </figure>
 
-        <div class="pt-day__sys">
-          <div class="pt-sys" role="img" aria-label="הדגמה של המערכת הפיננסית: יתרה נוכחית, הכנסות והוצאות צפויות השבוע ותחזית תזרים לחודש">
-            <div class="pt-sys__bar"><img src="assets/money-hk-icon.svg" alt="" /><b>חברה לדוגמה בע״מ</b><small>עודכן היום, 08:40</small></div>
-            <div class="pt-sys__tiles">
-              <div class="pt-sys__tile">
-                <small>יתרה נוכחית</small>
-                <b>22,900 ₪</b>
-                <span>עו״ש · 2 חשבונות</span>
-              </div>
-              <div class="pt-sys__tile">
-                <small>צפוי השבוע</small>
-                <b class="pt-sys__in">+34,000 ₪</b>
-                <span>הכנסות צפויות</span>
-              </div>
-              <div class="pt-sys__tile">
-                <small>&nbsp;</small>
-                <b class="pt-sys__out">−61,450 ₪</b>
-                <span>תשלומים צפויים</span>
-              </div>
+        <figure class="pt-day2__sys">
+          <div class="pt-app" role="img" aria-label="הדגמה של המערכת הפיננסית: יתרה היום, הכנסות והוצאות צפויות החודש ותחזית תזרים עד סוף החודש">
+            <div class="pt-app__top">
+              <div><b>מה יהיה בתזרים</b><small>חברה לדוגמה בע״מ · נכון להיום</small></div>
+              <span class="pt-app__seg"><i>שבועיים</i><i class="is-on">חודש</i><i>60 יום</i></span>
             </div>
-            <div class="pt-sys__chart">
-              <div class="pt-sys__chart-head"><b>תחזית תזרים</b><span>יתרה צפויה · 30 הימים הקרובים</span></div>
-              <svg viewBox="0 0 320 120" aria-hidden="true" preserveAspectRatio="none">
-                <defs><linearGradient id="ptg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#39abe2" stop-opacity=".35"/><stop offset="1" stop-color="#39abe2" stop-opacity="0"/></linearGradient></defs>
-                <line x1="0" y1="110" x2="320" y2="110" stroke="#d8e4ee" stroke-width="1"/>
-                <path d="M0,74 L33,88 L66,32 L99,52 L132,64 L165,16 L198,44 L231,58 L264,26 L297,50 L312,48 L312,110 L0,110 Z" fill="url(#ptg)"/>
-                <path d="M0,74 L33,88 L66,32 L99,52 L132,64 L165,16 L198,44 L231,58 L264,26 L297,50 L312,48" fill="none" stroke="#39abe2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-                <circle cx="312" cy="48" r="5" fill="#0c4068" stroke="#fff" stroke-width="2"/>
-              </svg>
-              <div class="pt-sys__chart-foot"><span>היום · 22,900 ₪</span><b>סוף החודש · 38,400 ₪</b></div>
+            <div class="pt-app__kpis">
+              <div><small>יתרה היום</small><b>22,900 ₪</b></div>
+              <div><small>צפוי להיכנס החודש</small><b class="is-in">112,000 ₪</b></div>
+              <div><small>צפוי לצאת החודש</small><b class="is-out">96,500 ₪</b></div>
+            </div>
+            <div class="pt-app__chart">
+              <svg viewBox="0 0 600 280" aria-hidden="true"><g transform="translate(0,52)">
+                <defs><linearGradient id="ptArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#39abe2" stop-opacity=".28"/><stop offset="1" stop-color="#39abe2" stop-opacity="0"/></linearGradient></defs>
+                <g stroke="#e3ebf2" stroke-width="1"><line x1="20" y1="30" x2="580" y2="30"/><line x1="20" y1="80" x2="580" y2="80"/><line x1="20" y1="130" x2="580" y2="130"/></g>
+                <path d="M20,104 L90,92 L160,70 L215,74 L250,128 L320,116 L390,96 L450,100 L490,62 L540,58 L580,66 L580,150 L20,150 Z" fill="url(#ptArea)"/>
+                <path d="M20,104 L90,92 L160,70 L215,74 L250,128 L320,116 L390,96 L450,100 L490,62 L540,58 L580,66" fill="none" stroke="#2c8fc8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+                <line x1="20" y1="150" x2="580" y2="150" stroke="#c9d6e2" stroke-width="1"/>
+                <g fill="#2e9e6b"><rect x="84" y="166" width="12" height="18" rx="2"/><rect x="154" y="166" width="12" height="30" rx="2"/><rect x="384" y="166" width="12" height="22" rx="2"/><rect x="484" y="166" width="12" height="34" rx="2"/></g>
+                <g fill="#e48375"><rect x="209" y="166" width="12" height="12" rx="2"/><rect x="244" y="166" width="12" height="40" rx="2"/><rect x="444" y="166" width="12" height="10" rx="2"/></g>
+                <circle cx="20" cy="104" r="6" fill="#fff" stroke="#0c4068" stroke-width="3"/>
+                <circle cx="580" cy="66" r="6" fill="#0c4068" stroke="#fff" stroke-width="2"/>
+              </g></svg>
+              <div class="pt-app__axis"><span>היום</span><span>שבוע הבא</span><span>בעוד שבועיים</span><span>סוף החודש</span></div>
+              <div class="pt-app__end"><small>יתרה צפויה בסוף החודש</small><b>38,400 ₪</b></div>
             </div>
           </div>
-          <p class="pt-day__cap">כל הנתונים במקום אחד: תמונת מצב עדכנית של העסק, תשלומים צפויים ותחזית תזרים שעוזרת להיערך מראש.</p>
-        </div>
+          <figcaption>כל הנתונים במקום אחד: תמונת מצב עדכנית של העסק, תשלומים צפויים ותחזית תזרים שעוזרת להיערך מראש.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
