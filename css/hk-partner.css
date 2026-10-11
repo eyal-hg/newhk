@@ -322,7 +322,7 @@ h3{font-family:var(--ui);font-weight:800}
 /* Hero: כותרת בשתי שורות, האיש יושב על קצה ה-hero, בלי פס לבן */
 .pt-v5 .pt-hero--clean .pt-hero__in{grid-template-columns:minmax(0,1.45fr) minmax(0,.75fr);gap:24px;padding-top:72px;padding-bottom:88px;align-items:center}
 .pt-v5 .pt-h1--one{font-size:clamp(2.1rem,3.6vw,3.35rem);line-height:1.18;margin:0}
-.pt-v5 .pt-h1--one .pt-nb{display:inline}
+.pt-v5 .pt-h1--one .pt-nb{display:block}
 .pt-v5 .pt-h1--one .pt-nb{color:#fff}
 .pt-v5 .pt-h1--one .pt-nb.pt-h1__acc{color:var(--salmon)}
 .pt-v5 .pt-hero--clean .pt-lead{max-width:640px;margin-top:20px}
@@ -414,4 +414,34 @@ h3{font-family:var(--ui);font-weight:800}
   .pt-how__bridge{margin:56px auto 36px;padding-top:44px}
   .pt-stage{border-radius:24px;padding:18px 14px 0}
   .pt-browser__bar span{display:none}
+}
+
+/* ══ פתיח בהיר בשפת האתר הראשי: שמיים ועיר, האיש על רצפה לבנה, הודעות KAI לידו ══ */
+.pt-v5 .pt-hero--light{background:#f4f8fb;color:var(--ink)}
+.pt-v5 .pt-hero--light .pt-hero__bg img{opacity:.38;filter:none;transform:scaleX(-1);object-position:center 35%}
+.pt-v5 .pt-hero--light .pt-hero__bg::after{background:linear-gradient(270deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.62) 45%,rgba(255,255,255,.1) 75%)}
+.pt-hero__floor{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(to top,#fff 45%,rgba(255,255,255,0));pointer-events:none;z-index:1}
+.pt-v5 .pt-hero--light .pt-hero__in{position:relative;z-index:2;padding-bottom:0;align-items:end;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.pt-v5 .pt-hero--light .pt-hero__copy{padding-bottom:96px;align-self:center}
+.pt-v5 .pt-hero--light .pt-h1,.pt-v5 .pt-hero--light .pt-lead{text-shadow:none}
+.pt-v5 .pt-hero--light .pt-h1--one .pt-nb{color:var(--navy)}
+.pt-v5 .pt-hero--light .pt-h1--one .pt-nb.pt-h1__acc{color:var(--salmon)}
+.pt-v5 .pt-hero--light .pt-lead{color:var(--text)}
+.pt-v5 .pt-hero--light .pt-hero__fine{color:var(--muted)}
+.pt-v5 .pt-hero--light .pt-hero__art--clean{position:relative;height:500px;align-self:end}
+.pt-v5 .pt-hero--light .pt-hero__man{position:absolute;bottom:0;right:0;left:auto;inset-inline-start:auto;inset-inline-end:auto;transform:none;width:min(430px,82%);height:auto;filter:drop-shadow(0 18px 30px rgba(12,64,104,.18))}
+.pt-hero__chat{position:absolute;left:-30px;top:70px;width:min(420px,80%);height:auto;z-index:2;filter:drop-shadow(0 20px 40px rgba(12,64,104,.12))}
+
+@media (max-width:1024px){
+  .pt-v5 .pt-hero--light .pt-hero__in{grid-template-columns:1fr;align-items:start}
+  .pt-v5 .pt-hero--light .pt-hero__copy{padding-bottom:0}
+  .pt-v5 .pt-hero--light .pt-hero__bg::after{background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.55) 60%,rgba(255,255,255,.2))}
+  .pt-v5 .pt-hero--light .pt-hero__art--clean{display:block;height:360px;max-width:560px;width:100%;margin:8px auto 0}
+  .pt-v5 .pt-hero--light .pt-hero__man{position:absolute;right:0;bottom:0;width:min(380px,74%);height:auto;max-width:none}
+  .pt-hero__chat{left:0;top:10px;width:min(320px,62%)}
+}
+@media (max-width:600px){
+  .pt-v5 .pt-hero--light .pt-hero__art--clean{height:290px}
+  .pt-v5 .pt-hero--light .pt-hero__man{width:76%}
+  .pt-hero__chat{width:64%;top:0}
 }
