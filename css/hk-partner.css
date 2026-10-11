@@ -289,3 +289,5 @@ h3{font-family:var(--ui);font-weight:800}
 /* קריאות הכותרת על רקע העיר */
 .pt-hero--clean .pt-h1,.pt-hero--clean .pt-lead{text-shadow:0 2px 24px rgba(10,39,64,.75)}
 .pt-hero--clean .pt-hero__bg img{opacity:.16}
+
+.pt-hero--clean .pt-hero__bg::after{background:radial-gradient(900px 600px at 85% 20%,rgba(57,171,226,.25),transparent 60%),linear-gradient(180deg,rgba(10,39,64,.62),rgba(10,39,64,.88) 70%,var(--ink))}
