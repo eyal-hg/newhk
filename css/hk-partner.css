@@ -272,3 +272,20 @@ h3{font-family:var(--ui);font-weight:800}
   .pt-v3 .pt-join__badges{grid-template-columns:1fr}
   .pt-h1--one{font-size:2.1rem}
 }
+
+/* ── סבב אופיר 11.10: hero נקי, הטבה + טופס בשני טורים ── */
+.pt-hero__fine{margin:16px 0 0;font-size:.95rem;color:rgba(255,255,255,.8)}
+.pt-top__in{justify-content:flex-start}
+.pt-offer2{margin-top:6px}
+.pt-offer2__price{display:flex;align-items:baseline;gap:10px}
+.pt-offer2__price b{font-family:var(--ui);font-weight:900;font-size:clamp(3rem,6vw,4.4rem);line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.pt-offer2__price span{font-family:var(--ui);font-weight:600;font-size:1.1rem;color:#9fd3f0}
+.pt-offer2__was{margin-top:8px;color:rgba(255,255,255,.6);text-decoration:line-through;font-size:1.05rem}
+.pt-offer2__inc{margin-top:26px;font-size:1.1rem;line-height:1.6;color:#fff;font-weight:500}
+.pt-offer2__inc small{display:block;font-family:var(--ui);font-weight:700;font-size:.82rem;letter-spacing:.06em;color:#9fd3f0;margin-bottom:4px}
+.pt-offer2__fine{margin-top:18px;font-size:.95rem;color:rgba(255,255,255,.75)}
+.pt-form--lean{gap:12px}
+
+/* קריאות הכותרת על רקע העיר */
+.pt-hero--clean .pt-h1,.pt-hero--clean .pt-lead{text-shadow:0 2px 24px rgba(10,39,64,.75)}
+.pt-hero--clean .pt-hero__bg img{opacity:.16}
