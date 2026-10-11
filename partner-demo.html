@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Rubik:wght@400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700;800;900&family=Suez+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/hk-partner.css?v=9" />
+  <link rel="stylesheet" href="css/hk-partner.css?v=10" />
 </head>
 <body class="pt-v3 pt-v5">
 
@@ -114,8 +114,15 @@
         <h2>ככה זה נראה <span>ביום־יום.</span></h2>
       </div>
 
-      <div class="pt-day2">
-        <figure class="pt-day2__wa">
+      <div class="pt-stage">
+        <figure class="pt-stage__app">
+          <div class="pt-browser">
+            <div class="pt-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>HK Money · התזרים קדימה</span></div>
+            <picture><source media="(max-width:600px)" srcset="assets/v2-system/partner-forecast-m.jpg" width="1000" height="623" />
+            <img src="assets/v2-system/partner-forecast.jpg" alt="מסך התזרים קדימה במערכת HK Money: היתרה היום, חריגה צפויה מסומנת מראש, הכנסות והוצאות צפויות ותחזית יתרה ל-30 הימים הקרובים" width="1800" height="1037"/></picture>
+          </div>
+        </figure>
+        <figure class="pt-stage__wa">
           <div class="pt-phone">
             <span class="pt-phone__notch" aria-hidden="true"></span>
             <div class="pt-wa" role="img" aria-label="הדגמה של שיחת וואטסאפ עם KAI: שאלה כמה כסף צפוי להישאר בסוף החודש, ושאלה אילו תשלומים צפויים השבוע">
@@ -149,39 +156,10 @@
             </div>
           </div>
           </div>
-          <figcaption>KAI בוואטסאפ · הדגמה עם נתונים בדויים</figcaption>
-        </figure>
-
-        <figure class="pt-day2__sys">
-          <div class="pt-app" role="img" aria-label="הדגמה של המערכת הפיננסית: יתרה היום, הכנסות והוצאות צפויות החודש ותחזית תזרים עד סוף החודש">
-            <div class="pt-app__top">
-              <div><b>מה יהיה בתזרים</b><small>חברה לדוגמה בע״מ · נכון להיום</small></div>
-              <span class="pt-app__seg"><i>שבועיים</i><i class="is-on">חודש</i><i>60 יום</i></span>
-            </div>
-            <div class="pt-app__kpis">
-              <div><small>יתרה היום</small><b>22,900 ₪</b></div>
-              <div><small>צפוי להיכנס החודש</small><b class="is-in">112,000 ₪</b></div>
-              <div><small>צפוי לצאת החודש</small><b class="is-out">96,500 ₪</b></div>
-            </div>
-            <div class="pt-app__chart">
-              <svg viewBox="0 0 600 280" aria-hidden="true"><g transform="translate(0,52)">
-                <defs><linearGradient id="ptArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#39abe2" stop-opacity=".28"/><stop offset="1" stop-color="#39abe2" stop-opacity="0"/></linearGradient></defs>
-                <g stroke="#e3ebf2" stroke-width="1"><line x1="20" y1="30" x2="580" y2="30"/><line x1="20" y1="80" x2="580" y2="80"/><line x1="20" y1="130" x2="580" y2="130"/></g>
-                <path d="M20,104 L90,92 L160,70 L215,74 L250,128 L320,116 L390,96 L450,100 L490,62 L540,58 L580,66 L580,150 L20,150 Z" fill="url(#ptArea)"/>
-                <path d="M20,104 L90,92 L160,70 L215,74 L250,128 L320,116 L390,96 L450,100 L490,62 L540,58 L580,66" fill="none" stroke="#2c8fc8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-                <line x1="20" y1="150" x2="580" y2="150" stroke="#c9d6e2" stroke-width="1"/>
-                <g fill="#2e9e6b"><rect x="84" y="166" width="12" height="18" rx="2"/><rect x="154" y="166" width="12" height="30" rx="2"/><rect x="384" y="166" width="12" height="22" rx="2"/><rect x="484" y="166" width="12" height="34" rx="2"/></g>
-                <g fill="#e48375"><rect x="209" y="166" width="12" height="12" rx="2"/><rect x="244" y="166" width="12" height="40" rx="2"/><rect x="444" y="166" width="12" height="10" rx="2"/></g>
-                <circle cx="20" cy="104" r="6" fill="#fff" stroke="#0c4068" stroke-width="3"/>
-                <circle cx="580" cy="66" r="6" fill="#0c4068" stroke="#fff" stroke-width="2"/>
-              </g></svg>
-              <div class="pt-app__axis"><span>היום</span><span>שבוע הבא</span><span>בעוד שבועיים</span><span>סוף החודש</span></div>
-              <div class="pt-app__end"><small>יתרה צפויה בסוף החודש</small><b>38,400 ₪</b></div>
-            </div>
-          </div>
-          <figcaption>כל הנתונים במקום אחד: תמונת מצב עדכנית של העסק, תשלומים צפויים ותחזית תזרים שעוזרת להיערך מראש.</figcaption>
         </figure>
       </div>
+      <p class="pt-stage__cap">כל הנתונים במקום אחד: תמונת מצב עדכנית של העסק, תשלומים צפויים ותחזית תזרים שעוזרת להיערך מראש.</p>
+      <p class="pt-stage__note">מסך אמיתי מהמערכת ושיחת וואטסאפ להדגמה, עם נתונים של חברה לדוגמה.</p>
     </div>
   </section>
 
