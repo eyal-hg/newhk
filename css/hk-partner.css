@@ -445,3 +445,21 @@ h3{font-family:var(--ui);font-weight:800}
   .pt-v5 .pt-hero--light .pt-hero__man{width:76%}
   .pt-hero__chat{width:64%;top:0}
 }
+
+/* ══ סבב 12.10 ב׳: כותרת עליונה במרכז, תווית פתיח בלי נקודה, שתי תמונות נפרדות ══ */
+.pt-v5 .pt-top__in{justify-content:center}
+.pt-eyebrow--hero{font-size:1.06rem;letter-spacing:.03em}
+.pt-stage--two{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:40px;align-items:center;padding:44px 48px 48px;min-height:0}
+.pt-stage--two .pt-stage__app{margin:0}
+.pt-stage--two .pt-stage__wa{position:static;width:auto}
+.pt-stage--two .pt-browser{border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.pt-stage__label{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 18px;text-align:center;font-family:var(--ui)}
+.pt-stage__label b{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:1.12rem;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:40px;padding:7px 18px}
+.pt-stage__label span{font-size:.88rem;color:rgba(255,255,255,.72);margin-top:6px}
+@media (max-width:1024px){
+  .pt-stage--two{grid-template-columns:1fr;gap:40px;padding:32px 24px 36px}
+  .pt-stage.pt-stage--two .pt-stage__wa{width:min(300px,100%);margin:0 auto}
+}
+@media (max-width:600px){
+  .pt-stage--two{padding:24px 14px 30px}
+}
