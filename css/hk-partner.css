@@ -514,3 +514,18 @@ h3{font-family:var(--ui);font-weight:800}
   .pt-daysec__bg{background-size:120% auto;opacity:.25}
   .pt-daysec .wa-chat-card{transform:none}
 }
+
+/* ══ KAI: הודעות צפות בלי מסגרת טלפון (כמו ההודעות בפתיח של האתר הראשי) ══ */
+.pt-fchat{display:flex;flex-direction:column;gap:18px;padding:6px 0 10px;transform:perspective(1100px) rotateY(9deg) rotateX(3deg);transform-style:preserve-3d}
+.pt-fb{position:relative;max-width:88%;border-radius:18px;padding:14px 18px 10px;font-family:Heebo,sans-serif;font-size:1rem;line-height:1.5;color:#111b21;font-weight:600}
+.pt-fb--out{align-self:flex-start;background:#dcf8c6;border-top-right-radius:4px;box-shadow:0 18px 40px rgba(12,64,104,.12),0 2px 6px rgba(12,64,104,.06)}
+.pt-fb--in{align-self:flex-end;width:92%;background:#fff;border-top-left-radius:4px;box-shadow:0 26px 60px rgba(12,64,104,.16),0 3px 10px rgba(12,64,104,.07)}
+.pt-fb--out:nth-child(3){margin-inline-start:22px}
+.pt-fb__t{display:block;font-style:normal;font-size:.7rem;font-weight:500;color:#8aa0b2;margin-top:4px;direction:ltr;text-align:left}
+.pt-fb--out .pt-fb__t{text-align:right}
+.pt-fb__who{display:inline-flex;align-items:center;gap:6px;font-family:var(--ui);font-weight:800;font-size:.78rem;color:#075e54;background:#e7f6f1;border-radius:20px;padding:3px 10px 3px 4px;margin-bottom:8px}
+.pt-fb__who img{width:20px;height:20px;border-radius:50%;background:#fff;padding:2px}
+.pt-daysec .pt-fb .wa-cf__title{font-size:1rem}
+.pt-daysec .pt-fb .wa-cf__item{font-size:.9rem}
+.pt-daysec .pt-fb .wa-cf__eod{font-size:.92rem}
+@media (max-width:600px){.pt-fchat{transform:none;gap:14px}.pt-fb{font-size:.95rem}}
