@@ -1,4 +1,9 @@
-/* דף שותף: לוי שורק ושות׳. אין למשרד אתר עם לוגו שמצאנו — חותמת ראשי תיבות ניטרלית בכחול כהה, במקום הירוק של דף הדוגמה */
-.pt-sorek{--firm:#1d3557;--firm-2:#2f5d8a;--firm-soft:#e9eff6;--gold:#9fb4cc}
-.pt-sorek .pt-seal{background:radial-gradient(circle at 30% 25%,#35577f,var(--firm) 70%)}
-.pt-sorek .pt-firm__name b{font-size:1.1rem}
+/* דף שותף: לוי שורק ושות׳ (LEVI & SOREK CPA). הלוגו מאייל 13.10: כדור בפסים נחושת ושם בשחור.
+   צבע המשרד בדף = נחושת הלוגו, במקום הירוק של דף הדוגמה. */
+.pt-sorek{--firm:#1c1c1c;--firm-2:#b3632f;--firm-soft:#f6ece4;--gold:#b3632f}
+.pt-sorek .pt-firm__logo{width:44px;height:44px;object-fit:contain;flex:0 0 auto;border-radius:50%}
+.pt-sorek .pt-firm__name b{font-size:1.08rem;color:#1c1c1c}
+.pt-sorek .pt-letter__who{gap:0}
+.pt-sorek .pt-letter__logo{width:100%;max-width:230px;height:auto;background:#fff;border-radius:16px;padding:18px 16px;box-shadow:0 14px 34px rgba(28,28,28,.08)}
+.pt-sorek .pt-letter__sig,.pt-sorek .pt-letter__open{color:#1c1c1c}
+@media (max-width:1024px){.pt-sorek .pt-letter__logo{max-width:180px}}
