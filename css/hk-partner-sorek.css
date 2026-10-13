@@ -1,0 +1,4 @@
+/* דף שותף: לוי שורק ושות׳. אין למשרד אתר עם לוגו שמצאנו — חותמת ראשי תיבות ניטרלית בכחול כהה, במקום הירוק של דף הדוגמה */
+.pt-sorek{--firm:#1d3557;--firm-2:#2f5d8a;--firm-soft:#e9eff6;--gold:#9fb4cc}
+.pt-sorek .pt-seal{background:radial-gradient(circle at 30% 25%,#35577f,var(--firm) 70%)}
+.pt-sorek .pt-firm__name b{font-size:1.1rem}
