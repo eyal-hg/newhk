@@ -67,9 +67,10 @@
           </div>
         </a>
         <ul class="mn-nav__links" id="mn-nav-links">
-          <li><a href="#who-is-kai">מי זה KAI?</a></li>
+          <li><a href="#meet">מי זה KAI?</a></li>
+          <li><a href="#cases">לאיזה עסק</a></li>
+          <li><a href="#compare">השוואה</a></li>
           <li><a href="#trio">הצוות שמאחוריו</a></li>
-          <li><a href="#demo">איך זה נראה בוואטסאפ</a></li>
           <li><a href="#pricing">מסלולים</a></li>
           <li><a href="#faq">שאלות ותשובות</a></li>
           <li><a href="#contact" class="mn-btn mn-btn--salmon mn-nav__cta">להכיר את KAI</a></li>
@@ -90,7 +91,7 @@
     </div>
     <div class="mn-hero__white-bottom"></div>
     <div class="mn-hero__inner">
-      <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.92); border:1px solid rgba(12,64,104,0.15); padding:6px 16px; border-radius:30px; margin-bottom:18px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+      <div class="kai-hero__pill" style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.92); border:1px solid rgba(12,64,104,0.15); padding:6px 16px; border-radius:30px; margin-bottom:18px; box-shadow:0 2px 10px rgba(0,0,0,0.06);">
         <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981;"></span>
         <span style="font-weight:700; color:var(--navy); font-size:0.88rem;">הכירו את KAI · מבית HK Money</span>
       </div>
@@ -100,13 +101,14 @@
       </h1>
       <p class="mn-hero__sub">עונה בוואטסאפ 24/7 על נתוני העסק. <strong class="kai-hero__strong">ומאחוריו, מנהל תזרים אישי.</strong></p>
       
-      <div style="display:flex; justify-content:center; gap:12px; margin-bottom:28px; flex-wrap:wrap;">
+      <div class="kai-hero__chips" style="display:flex; justify-content:center; gap:12px; margin-bottom:28px; flex-wrap:wrap;">
         <span style="background:rgba(255,255,255,0.85); color:var(--navy); font-weight:700; font-size:0.85rem; padding:6px 14px; border-radius:20px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">🛡️ לא עוד בוט: מנהל תזרים אישי מאחוריו</span>
         <span style="background:rgba(255,255,255,0.85); color:var(--navy); font-weight:700; font-size:0.85rem; padding:6px 14px; border-radius:20px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">🏦 Open Banking בפיקוח בנק ישראל</span>
         <span style="background:rgba(255,255,255,0.85); color:var(--navy); font-weight:700; font-size:0.85rem; padding:6px 14px; border-radius:20px; box-shadow:0 2px 6px rgba(0,0,0,0.05);">💬 הכל בוואטסאפ, בלי אפליקציה</span>
       </div>
 
       <a href="#contact" class="mn-btn mn-btn--salmon mn-hero__cta">להכיר את KAI</a>
+      <p class="kai-hero__trust">בלי התחייבות · מבית המייסד של Bizibox</p>
       <div class="mn-hero__images">
         <div class="mn-hero__chat-wrap">
           <img src="assets/kai/money-chat.png" alt="שיחה עם KAI בוואטסאפ" class="mn-hero__chat-img" />
@@ -144,7 +146,56 @@
             <span class="ai-problem__num">0</span>
             <span class="ai-problem__label">אפליקציות חדשות ללמוד. KAI חי בוואטסאפ, איפה שהעסק כבר מתנהל</span>
           </div>
+          <div class="ai-problem__stat">
+            <span class="ai-problem__num kx-num-text">עשרות אלפי</span>
+            <span class="ai-problem__label">עסקים בישראל עובדים עם Bizibox, הממשק הפיננסי שאייל חזות הקים. KAI נבנה על אותו ניסיון</span>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       MEET KAI (character)
+  ══════════════════════════════════ -->
+  <section class="kx-meet" id="meet">
+    <div class="mn-wrap kx-meet__inner">
+      <div class="kx-meet__text">
+        <span class="mn-tag">נעים להכיר</span>
+        <h2 class="mn-section-title">זה KAI.<br /><span class="mn-accent-salmon">ככה הוא מדבר.</span></h2>
+        <p class="kx-lead">KAI לא מדבר כמו בנק ולא כמו דוח. הוא מדבר כמו מי שמכיר את העסק, יודע מה יש בחשבון ומה צפוי לצאת, ואומר את זה בשתי שורות.</p>
+        <ul class="kx-traits">
+          <li><strong>יודע את המספרים של העסק.</strong> הוא עונה מנתוני הבנק והאשראי של העסק, לא מהאינטרנט.</li>
+          <li><strong>מדבר פשוט.</strong> בלי מונחים חשבונאיים. "יש מספיק", "חסר", "כדאי לדחות".</li>
+          <li><strong>לא ממציא.</strong> כשמשהו לא מופיע בנתונים, הוא אומר את זה, ומעביר את השאלה למנהל התזרים האישי.</li>
+        </ul>
+      </div>
+      <div class="kx-meet__chat" aria-label="דוגמה לשיחה עם KAI">
+        <div class="kx-chat__head"><span class="kx-chat__avatar">K</span><div><strong>KAI</strong><span>השותף הפיננסי · HK Money</span></div></div>
+        <div class="kx-chat__body">
+          <div class="kx-b kx-b--out">יש לי מספיק לשלם משכורות ביום חמישי?</div>
+          <div class="kx-b kx-b--in">כן, אבל צפוף. אחרי המשכורות יישארו בערך 8,000 ₪, ויום אחרי זה יורד חיוב האשראי. אם התשלום מהלקוח הגדול מתעכב, כדאי לדחות את הספק של יום ראשון.</div>
+          <div class="kx-b kx-b--out">ומה עם ההחזר ממע״מ?</div>
+          <div class="kx-b kx-b--in">את זה אני לא רואה בנתונים של הבנק עדיין. העברתי את השאלה למנהל התזרים שלך, והוא יחזור אליך עם תשובה.</div>
+        </div>
+        <p class="kx-chat__note">דוגמה להמחשה. המספרים לא של עסק אמיתי.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       VIDEO
+  ══════════════════════════════════ -->
+  <section class="kx-video" id="video">
+    <div class="mn-wrap kx-video__inner">
+      <div class="kx-video__frame">
+        <video src="assets/kai/kai-video.mp4" poster="assets/kai/kai-video-poster.jpg" controls playsinline preload="none"></video>
+      </div>
+      <div class="kx-video__text">
+        <span class="mn-tag">30 שניות</span>
+        <h2 class="mn-section-title">ככה זה נראה<br /><span class="mn-accent-blue">בחיים האמיתיים</span></h2>
+        <p class="kx-lead">שאלה בוואטסאפ, תשובה על הכסף של העסק, ומנהל תזרים אמיתי שעומד מאחוריה.</p>
+        <a href="#contact" class="mn-btn mn-btn--salmon">רוצים לנסות בעסק שלכם</a>
       </div>
     </div>
   </section>
@@ -242,6 +293,38 @@
   </section>
 
   <!-- ══════════════════════════════════
+       CASES BY BUSINESS TYPE
+  ══════════════════════════════════ -->
+  <section class="kx-cases" id="cases">
+    <div class="mn-wrap">
+      <div class="kx-head">
+        <span class="mn-tag mn-tag--center">לאיזה עסק זה מתאים</span>
+        <h2 class="mn-section-title mn-section-title--center">כל עסק שואל<br /><span class="mn-accent-salmon">שאלה אחרת על הכסף</span></h2>
+      </div>
+      <div class="kx-cases__grid">
+        <article class="kx-case">
+          <div class="kx-case__type">🍽️ מסעדה או בית קפה</div>
+          <p class="kx-case__pain">הכסף מהסליקה נכנס בטפטוף, והספקים רוצים את שלהם כל שבוע.</p>
+          <div class="kx-case__q">"כמה ייכנס מהאשראי עד יום ראשון, ויספיק לספקים?"</div>
+          <p class="kx-case__a">KAI מראה מה צפוי להיכנס מהסליקה ומה יוצא לספקים, יום אחרי יום.</p>
+        </article>
+        <article class="kx-case">
+          <div class="kx-case__type">🏗️ קבלן או נותן שירות</div>
+          <p class="kx-case__pain">עובדים היום, הלקוח משלם בעוד חודשיים, והמשכורות לא מחכות.</p>
+          <div class="kx-case__q">"הלקוח עוד לא שילם על אוקטובר. אני מסתדר עם המשכורות?"</div>
+          <p class="kx-case__a">KAI מחשב מה קורה בחשבון בלי התשלום הזה, ומנהל התזרים עוקב אחרי הגבייה.</p>
+        </article>
+        <article class="kx-case">
+          <div class="kx-case__type">📦 יבואן או סוחר</div>
+          <p class="kx-case__pain">תשלומים גדולים לספקים מראש, וכסף שחוזר רק כשהסחורה נמכרת.</p>
+          <div class="kx-case__q">"יש לי תשלום גדול לספק בעוד שבועיים. מה יהיה בחשבון עד אז?"</div>
+          <p class="kx-case__a">KAI מראה את התחזית עד יום התשלום, ומתריע אם צפוי חוסר.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
        FIRST CONTACT FORM
   ══════════════════════════════════ -->
   <section class="mn-contact" id="lead">
@@ -271,34 +354,69 @@
   </section>
 
   <!-- ══════════════════════════════════
+       COMPARISON
+  ══════════════════════════════════ -->
+  <section class="kx-compare" id="compare">
+    <div class="mn-wrap">
+      <div class="kx-head">
+        <span class="mn-tag mn-tag--center">השוואה</span>
+        <h2 class="mn-section-title mn-section-title--center">למה לא פשוט<br /><span class="mn-accent-salmon">ChatGPT, אקסל או רואה החשבון?</span></h2>
+      </div>
+      <p class="kx-scroll-hint">גוללים לצד כדי לראות את כל ההשוואה ←</p>
+      <div class="kx-table-wrap" tabindex="0" aria-label="טבלת השוואה, אפשר לגלול לצדדים">
+        <table class="kx-table">
+          <thead>
+            <tr><th></th><th class="kx-col-kai">KAI + מנהל תזרים</th><th>ChatGPT</th><th>אקסל</th><th>רואה החשבון</th><th>סמנכ״ל כספים במשרה מלאה</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>מחובר לבנק ולאשראי של העסק</th><td class="kx-col-kai">✓</td><td>✗</td><td>מעדכנים ידנית</td><td>בדיעבד</td><td>✓</td></tr>
+            <tr><th>עונה בוואטסאפ, גם בערב</th><td class="kx-col-kai">✓</td><td>✓</td><td>✗</td><td>✗</td><td>✗</td></tr>
+            <tr><th>תחזית תזרים קדימה</th><td class="kx-col-kai">✓</td><td>✗</td><td>אם מישהו בונה ומעדכן</td><td>בדרך כלל לא</td><td>✓</td></tr>
+            <tr><th>איש מקצוע שבודק את הנתונים</th><td class="kx-col-kai">✓</td><td>✗</td><td>✗</td><td>על מה שכבר קרה</td><td>✓</td></tr>
+            <tr><th>מתריע לפני שנוצר פער</th><td class="kx-col-kai">✓</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td></tr>
+            <tr><th>עלות</th><td class="kx-col-kai">מנוי חודשי</td><td>זול</td><td>הזמן שלכם</td><td>שכר טרחה</td><td>עשרות אלפי ₪ בחודש</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="kx-note">רואה החשבון נשאר חשוב: דוחות, מסים ורגולציה. KAI משלים אותו במה שקורה בכסף כל יום.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
        HOW IT WORKS
   ══════════════════════════════════ -->
   <section class="mn-features" id="how">
     <div class="mn-wrap">
       <div class="mn-features__header">
-        <span class="mn-tag mn-tag--center">איך זה עובד ביומיום?</span>
+        <span class="mn-tag mn-tag--center">מה קורה אחרי שמשאירים פרטים</span>
         <h2 class="mn-section-title mn-section-title--center">
-          כל בוקר, בלי מאמץ –<br />
-          <span class="mn-accent-salmon">התמונה הפיננסית של העסק ברורה</span>
+          החודש הראשון,<br />
+          <span class="mn-accent-salmon">צעד אחר צעד</span>
         </h2>
       </div>
-      <div class="ai-how-grid">
+      <div class="ai-how-grid kx-month">
         <div class="ai-how-step">
           <div class="ai-how-step__num">01</div>
-          <h3>סנכרון אוטומטי</h3>
-          <p>נתוני הבנקים והאשראי נמשכים אוטומטית, בחיבור קריאה בלבד, ונבנית תמונת תזרים עדכנית.</p>
+          <h3>שיחת היכרות</h3>
+          <p>מתקשרים אליכם, מבינים את העסק ואיפה הכסף לוחץ, ובודקים שהשירות מתאים.</p>
         </div>
         <div class="ai-how-arrow">←</div>
         <div class="ai-how-step">
           <div class="ai-how-step__num">02</div>
-          <h3>בקרה אנושית</h3>
-          <p>מנהל התזרים האישי עובר על הנתונים, סוגר קצוות ובודק שהתחזית נכונה.</p>
+          <h3>חיבור הבנקים והאשראי</h3>
+          <p>חיבור לקריאה בלבד, דרך חברות Open Banking בפיקוח בנק ישראל. אנחנו מלווים אתכם בחיבור.</p>
         </div>
         <div class="ai-how-arrow">←</div>
         <div class="ai-how-step">
           <div class="ai-how-step__num">03</div>
-          <h3>אתם ו-KAI בוואטסאפ</h3>
-          <p>מקבלים עדכון מסודר. צריך לבדוק הוצאה או תשלום לספק? שואלים את KAI ומקבלים תשובה תוך שניות.</p>
+          <h3>מנהל התזרים בונה את התמונה</h3>
+          <p>מנהל התזרים האישי עובר על התנועות, מסדר אותן ובונה תחזית תזרים לעסק.</p>
+        </div>
+        <div class="ai-how-arrow">←</div>
+        <div class="ai-how-step">
+          <div class="ai-how-step__num">04</div>
+          <h3>ההודעה הראשונה מ-KAI</h3>
+          <p>מגיע העדכון הראשון בוואטסאפ. מכאן שואלים את KAI כל מה שרוצים, ומנהל התזרים ממשיך ללוות.</p>
         </div>
       </div>
     </div>
