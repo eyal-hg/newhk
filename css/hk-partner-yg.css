@@ -1,0 +1,9 @@
+/* דף שותף: י.ג חשבונאות ופיננסים. הלוגו מאייל 21.10: מונוגרמה בזהב על כחול לילה.
+   צבע המשרד בדף = הזהב והכחול הכהה של הלוגו, במקום הירוק של דף הדוגמה. */
+.pt-yg{--firm:#0d1a2b;--firm-2:#b8913f;--firm-soft:#f6f0e2;--gold:#b8913f}
+.pt-yg .pt-firm__logo{width:44px;height:44px;object-fit:cover;flex:0 0 auto;border-radius:50%;background:#0d1a2b}
+.pt-yg .pt-firm__name b{font-size:1.08rem;color:#0d1a2b}
+.pt-yg .pt-letter__who{gap:0}
+.pt-yg .pt-letter__logo{width:100%;max-width:260px;height:auto;background:#0d1a2b;border-radius:16px;box-shadow:0 14px 34px rgba(13,26,43,.18)}
+.pt-yg .pt-letter__sig,.pt-yg .pt-letter__open{color:#0d1a2b}
+@media (max-width:1024px){.pt-yg .pt-letter__logo{max-width:200px}}
