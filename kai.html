@@ -901,7 +901,7 @@
         btn.disabled = true;
         btn.textContent = 'שולחים...';
         try {
-          var res = await fetch('https://hk-prod-462507.oa.r.appspot.com/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+          var res = await fetch('https://api.hak.co.il/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
           if (!res.ok) throw new Error('server error');
           btn.textContent = '✓ קיבלנו, נחזור אליכם בקרוב';
           btn.style.background = '#4caf87';

@@ -218,7 +218,7 @@
       var payload = { name: name, phone: phone, stageKey: 'new', source: { channel: 'אתר HK Money', form: 'דף שותף · לוי שורק · 950' }, notes: 'הגיע דרך דף השותף של משרד רו״ח לוי שורק ושות׳ (hak.co.il/levi-sorek)' };
       btn.disabled = true; btn.textContent = 'שולח...'; err.hidden = true;
       try {
-        var res = await fetch('https://hk-prod-462507.oa.r.appspot.com/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        var res = await fetch('https://api.hak.co.il/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
         if (!res.ok) throw new Error('server');
         btn.textContent = '✓ קיבלנו, נחזור אליך'; btn.classList.add('is-done'); this.reset();
       } catch (x) { btn.disabled = false; btn.textContent = 'לקבלת ההטבה ללקוחות המשרד'; err.hidden = false; }
